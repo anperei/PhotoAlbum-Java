@@ -1,0 +1,353 @@
+2026-06-26T14:18:48.512Z [INFO] ----------------------invoke appmod-report-event----------------------
+2026-06-26T14:18:48.512Z [INFO] [Tool.invoke]({name: appmod-report-event, modelId: mcp-client, input: {
+  "projectPath": "C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java",
+  "event": "precheckCompleted",
+  "status": "succeeded",
+  "phase": "precheck",
+  "details": {}
+}}).
+2026-06-26T14:18:48.513Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:18:48.516Z [INFO] Project C:\AppDev\PhotoAlbum-Java\PhotoAlbum-Java is a maven project, try to get java version from pom.xml
+2026-06-26T14:18:48.518Z [INFO] [Tool.invoke]({result: {
+  "message": "Event 'precheckCompleted' reported!\nSession ID: 20260626141848,\nSession Dir: C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java\\.github\\modernize\\java-upgrade\\20260626141848"
+}}).
+2026-06-26T14:18:48.528Z [INFO] ----------------------invoked appmod-report-event----------------------
+2026-06-26T14:18:48.534Z [INFO] ----------------------invoke appmod-list-jdks----------------------
+2026-06-26T14:18:48.534Z [INFO] [Tool.invoke]({name: appmod-list-jdks, modelId: mcp-client, input: {}}).
+2026-06-26T14:18:48.535Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:18:48.536Z [INFO] ----------------------invoke appmod-list-mavens----------------------
+2026-06-26T14:18:48.537Z [INFO] [Tool.invoke]({name: appmod-list-mavens, modelId: mcp-client, input: {}}).
+2026-06-26T14:18:48.537Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:18:48.542Z [INFO] Project java version: 8
+2026-06-26T14:18:48.542Z [INFO] Maven project detected.
+2026-06-26T14:18:48.543Z [INFO] Build tool type: mvn
+2026-06-26T14:18:48.546Z [INFO] [Tool.invoke]({result: {
+  "message": "No Maven installations found."
+}}).
+2026-06-26T14:18:48.546Z [INFO] ----------------------invoked appmod-list-mavens----------------------
+2026-06-26T14:18:48.563Z [INFO] [Tool.invoke]({result: {
+  "message": "No JDK installations found."
+}}).
+2026-06-26T14:18:48.564Z [INFO] ----------------------invoked appmod-list-jdks----------------------
+2026-06-26T14:18:48.578Z [INFO] JDK: undefined
+2026-06-26T14:18:48.579Z [ERROR] Failed to detect or resolve JDK for the project at C:\AppDev\PhotoAlbum-Java\PhotoAlbum-Java.
+2026-06-26T14:18:48.580Z [WARN] [ReportEventTool] Full project info unavailable, attempting lightweight fallback: UserError: Failed to detect or resolve JDK for the project at C:\AppDev\PhotoAlbum-Java\PhotoAlbum-Java. Please ensure JDK 8 is installed and properly configured on the machine.
+2026-06-26T14:18:48.600Z [INFO] Maven project detected.
+2026-06-26T14:18:48.601Z [INFO] Project C:\AppDev\PhotoAlbum-Java\PhotoAlbum-Java is a maven project, try to get java version from pom.xml
+2026-06-26T14:19:25.763Z [INFO] ----------------------invoke appmod-report-event----------------------
+2026-06-26T14:19:25.764Z [INFO] [Tool.invoke]({name: appmod-report-event, modelId: mcp-client, input: {
+  "sessionId": "20260626141848",
+  "projectPath": "C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java",
+  "event": "planGenerationStarted",
+  "status": "succeeded",
+  "phase": "plan"
+}}).
+2026-06-26T14:19:25.765Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:19:25.766Z [INFO] [Tool.invoke]({result: {
+  "message": "Event 'planGenerationStarted' reported!\nSession ID: 20260626141848,\nSession Dir: C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java\\.github\\modernize\\java-upgrade\\20260626141848"
+}}).
+2026-06-26T14:19:25.767Z [INFO] ----------------------invoked appmod-report-event----------------------
+2026-06-26T14:20:32.127Z [INFO] ----------------------invoke appmod-report-event----------------------
+2026-06-26T14:20:32.127Z [INFO] [Tool.invoke]({name: appmod-report-event, modelId: mcp-client, input: {
+  "sessionId": "20260626141848",
+  "projectPath": "C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java",
+  "event": "planReviewed",
+  "status": "succeeded",
+  "phase": "plan"
+}}).
+2026-06-26T14:20:32.128Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:20:32.129Z [INFO] [Tool.invoke]({result: {
+  "message": "Event 'planReviewed' reported!\nSession ID: 20260626141848,\nSession Dir: C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java\\.github\\modernize\\java-upgrade\\20260626141848"
+}}).
+2026-06-26T14:20:32.129Z [INFO] ----------------------invoked appmod-report-event----------------------
+2026-06-26T14:20:34.929Z [INFO] ----------------------invoke appmod-confirm-upgrade-plan----------------------
+2026-06-26T14:20:34.929Z [INFO] [Tool.invoke]({name: appmod-confirm-upgrade-plan, modelId: mcp-client, input: {
+  "sessionId": "20260626141848"
+}}).
+2026-06-26T14:20:34.931Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:20:34.931Z [INFO] Upgrade plan confirmed successfully.
+2026-06-26T14:20:34.932Z [INFO] [Tool.invoke]({result: {
+  "message": "Generated plan is reviewed and confirmed by the user! the upgrade process will start now."
+}}).
+2026-06-26T14:20:34.932Z [INFO] ----------------------invoked appmod-confirm-upgrade-plan----------------------
+2026-06-26T14:20:54.059Z [INFO] ----------------------invoke appmod-report-event----------------------
+2026-06-26T14:20:54.059Z [INFO] [Tool.invoke]({name: appmod-report-event, modelId: mcp-client, input: {
+  "sessionId": "20260626141848",
+  "projectPath": "C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java",
+  "event": "planExecutionStarted",
+  "status": "succeeded",
+  "phase": "execute"
+}}).
+2026-06-26T14:20:54.060Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:20:54.160Z [INFO] [Tool.invoke]({result: {
+  "message": "Event 'planExecutionStarted' reported!\nSession ID: 20260626141848,\nSession Dir: C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java\\.github\\modernize\\java-upgrade\\20260626141848"
+}}).
+2026-06-26T14:20:54.161Z [INFO] ----------------------invoked appmod-report-event----------------------
+2026-06-26T14:21:03.092Z [INFO] ----------------------invoke appmod-install-jdk----------------------
+2026-06-26T14:21:03.092Z [INFO] [Tool.invoke]({name: appmod-install-jdk, modelId: mcp-client, input: {
+  "sessionId": "20260626141848",
+  "version": "25"
+}}).
+2026-06-26T14:21:03.093Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:21:03.103Z [INFO] ----------------------invoke appmod-install-maven----------------------
+2026-06-26T14:21:03.104Z [INFO] [Tool.invoke]({name: appmod-install-maven, modelId: mcp-client, input: {
+  "sessionId": "20260626141848",
+  "version": "latest"
+}}).
+2026-06-26T14:21:03.104Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:21:05.612Z [INFO] [Tool.invoke]({result: {
+  "result": {
+    "name": "mvn",
+    "path": "C:\\Users\\anperei\\.maven\\maven-3.9.16\\bin",
+    "version": "3.9.16"
+  },
+  "message": "Maven latest is installed at C:\\Users\\anperei\\.maven\\maven-3.9.16\\bin",
+  "telemetry": {
+    "tool": "Maven",
+    "version": "latest"
+  }
+}}).
+2026-06-26T14:21:05.612Z [INFO] ----------------------invoked appmod-install-maven----------------------
+2026-06-26T14:21:17.561Z [INFO] [Tool.invoke]({result: {
+  "result": {
+    "name": "java",
+    "path": "C:\\Users\\anperei\\AppData\\Local\\jdks\\jdk-25.0.2\\bin",
+    "version": "25.0.2"
+  },
+  "message": "JDK 25 is installed at C:\\Users\\anperei\\AppData\\Local\\jdks\\jdk-25.0.2\\bin",
+  "telemetry": {
+    "tool": "JDK",
+    "version": "25"
+  }
+}}).
+2026-06-26T14:21:17.562Z [INFO] ----------------------invoked appmod-install-jdk----------------------
+2026-06-26T14:21:22.091Z [INFO] ----------------------invoke appmod-list-jdks----------------------
+2026-06-26T14:21:22.092Z [INFO] [Tool.invoke]({name: appmod-list-jdks, modelId: mcp-client, input: {
+  "sessionId": "20260626141848"
+}}).
+2026-06-26T14:21:22.092Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:21:22.138Z [INFO] [Tool.invoke]({result: {
+  "message": "We found following jdks in your system:\n\n1. Java 25.0.2\n   📁 Path: C:\\Users\\anperei\\AppData\\Local\\jdks\\jdk-25.0.2\\bin\n   🏷️ Source: install\n\nTotal: 1 JDK installation(s) found"
+}}).
+2026-06-26T14:21:22.139Z [INFO] ----------------------invoked appmod-list-jdks----------------------
+2026-06-26T14:21:26.281Z [INFO] ----------------------invoke appmod-report-event----------------------
+2026-06-26T14:21:26.281Z [INFO] [Tool.invoke]({name: appmod-report-event, modelId: mcp-client, input: {
+  "sessionId": "20260626141848",
+  "projectPath": "C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java",
+  "event": "environmentSetup",
+  "status": "succeeded",
+  "phase": "execute",
+  "details": {}
+}}).
+2026-06-26T14:21:26.282Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:21:26.282Z [INFO] Project C:\AppDev\PhotoAlbum-Java\PhotoAlbum-Java is a maven project, try to get java version from pom.xml
+2026-06-26T14:21:26.283Z [INFO] [Tool.invoke]({result: {
+  "message": "Event 'environmentSetup' reported!\nSession ID: 20260626141848,\nSession Dir: C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java\\.github\\modernize\\java-upgrade\\20260626141848"
+}}).
+2026-06-26T14:21:26.284Z [INFO] ----------------------invoked appmod-report-event----------------------
+2026-06-26T14:21:26.286Z [INFO] Project java version: 8
+2026-06-26T14:21:26.287Z [INFO] Maven project detected.
+2026-06-26T14:21:26.287Z [INFO] Build tool type: mvn
+2026-06-26T14:21:26.385Z [INFO] JDK: undefined
+2026-06-26T14:21:26.386Z [ERROR] Failed to detect or resolve JDK for the project at C:\AppDev\PhotoAlbum-Java\PhotoAlbum-Java.
+2026-06-26T14:21:26.387Z [WARN] [ReportEventTool] Full project info unavailable, attempting lightweight fallback: UserError: Failed to detect or resolve JDK for the project at C:\AppDev\PhotoAlbum-Java\PhotoAlbum-Java. Please ensure JDK 8 is installed and properly configured on the machine.
+2026-06-26T14:21:26.388Z [INFO] Maven project detected.
+2026-06-26T14:21:26.390Z [INFO] Project C:\AppDev\PhotoAlbum-Java\PhotoAlbum-Java is a maven project, try to get java version from pom.xml
+2026-06-26T14:21:40.335Z [INFO] ----------------------invoke appmod-report-event----------------------
+2026-06-26T14:21:40.336Z [INFO] [Tool.invoke]({name: appmod-report-event, modelId: mcp-client, input: {
+  "sessionId": "20260626141848",
+  "projectPath": "C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java",
+  "event": "baselineSetup",
+  "status": "skipped",
+  "phase": "execute",
+  "message": "JDK 8 not available on system — baseline step skipped"
+}}).
+2026-06-26T14:21:40.336Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:21:40.337Z [INFO] [Tool.invoke]({result: {
+  "message": "Event 'baselineSetup' reported!\nSession ID: 20260626141848,\nSession Dir: C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java\\.github\\modernize\\java-upgrade\\20260626141848"
+}}).
+2026-06-26T14:21:40.337Z [INFO] ----------------------invoked appmod-report-event----------------------
+2026-06-26T14:21:45.231Z [INFO] ----------------------invoke appmod-report-event----------------------
+2026-06-26T14:21:45.232Z [INFO] [Tool.invoke]({name: appmod-report-event, modelId: mcp-client, input: {
+  "sessionId": "20260626141848",
+  "projectPath": "C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java",
+  "event": "upgradeStepStarted",
+  "status": "succeeded",
+  "phase": "execute",
+  "details": {}
+}}).
+2026-06-26T14:21:45.232Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:21:45.233Z [INFO] [Tool.invoke]({result: {
+  "message": "Event 'upgradeStepStarted' reported!\nSession ID: 20260626141848,\nSession Dir: C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java\\.github\\modernize\\java-upgrade\\20260626141848"
+}}).
+2026-06-26T14:21:45.234Z [INFO] ----------------------invoked appmod-report-event----------------------
+2026-06-26T14:22:20.697Z [INFO] ----------------------invoke appmod-report-event----------------------
+2026-06-26T14:22:20.698Z [INFO] [Tool.invoke]({name: appmod-report-event, modelId: mcp-client, input: {
+  "sessionId": "20260626141848",
+  "projectPath": "C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java",
+  "event": "upgradeStepStarted",
+  "status": "succeeded",
+  "phase": "execute",
+  "details": {}
+}}).
+2026-06-26T14:22:20.699Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:22:20.699Z [INFO] [Tool.invoke]({result: {
+  "message": "Event 'upgradeStepStarted' reported!\nSession ID: 20260626141848,\nSession Dir: C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java\\.github\\modernize\\java-upgrade\\20260626141848"
+}}).
+2026-06-26T14:22:20.699Z [INFO] ----------------------invoked appmod-report-event----------------------
+2026-06-26T14:24:10.851Z [INFO] ----------------------invoke appmod-report-event----------------------
+2026-06-26T14:24:10.852Z [INFO] [Tool.invoke]({name: appmod-report-event, modelId: mcp-client, input: {
+  "sessionId": "20260626141848",
+  "projectPath": "C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java",
+  "event": "buildCompleted",
+  "status": "succeeded",
+  "phase": "execute"
+}}).
+2026-06-26T14:24:10.853Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:24:10.854Z [INFO] Project C:\AppDev\PhotoAlbum-Java\PhotoAlbum-Java is a maven project, try to get java version from pom.xml
+2026-06-26T14:24:10.855Z [INFO] [Tool.invoke]({result: {
+  "message": "Event 'buildCompleted' reported!\nSession ID: 20260626141848,\nSession Dir: C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java\\.github\\modernize\\java-upgrade\\20260626141848"
+}}).
+2026-06-26T14:24:10.856Z [INFO] ----------------------invoked appmod-report-event----------------------
+2026-06-26T14:24:10.857Z [INFO] Project java version: 25
+2026-06-26T14:24:10.858Z [INFO] Maven project detected.
+2026-06-26T14:24:10.859Z [INFO] Build tool type: mvn
+2026-06-26T14:24:11.004Z [INFO] JDK: {
+  "name": "java",
+  "path": "C:\\Users\\anperei\\AppData\\Local\\jdks\\jdk-25.0.2\\bin",
+  "version": "25"
+}
+2026-06-26T14:24:11.039Z [INFO] Build tool: {
+  "name": "mvn",
+  "path": "C:\\Users\\anperei\\.maven\\maven-3.9.16\\bin",
+  "version": "",
+  "source": "install"
+}
+2026-06-26T14:24:11.040Z [INFO] Project config: {
+  "buildTool": {
+    "path": "C:\\Users\\anperei\\.maven\\maven-3.9.16\\bin",
+    "name": "mvn",
+    "version": "",
+    "source": "install"
+  },
+  "jdk": {
+    "path": "C:\\Users\\anperei\\AppData\\Local\\jdks\\jdk-25.0.2\\bin",
+    "name": "java",
+    "version": "25"
+  },
+  "name": "PhotoAlbum-Java",
+  "dir": "C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java"
+}
+2026-06-26T14:24:11.042Z [INFO] [MavenBuildTool] Getting all module coordinates of C:\AppDev\PhotoAlbum-Java\PhotoAlbum-Java
+2026-06-26T14:24:11.044Z [INFO] [MavenBuildTool] Getting effective POMs of C:\AppDev\PhotoAlbum-Java\PhotoAlbum-Java
+2026-06-26T14:24:11.047Z [INFO] [Environment] Running command (Java undefined): mvn help:effective-pom -Doutput=effective-pom-3f55fb3b-873a-41d6-889e-ba94aa78e1ef.log
+[INFO] Scanning for projects...
+Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/build-helper-maven-plugin/3.6.1/build-helper-maven-plugin-3.6.1.pom
+Progress (1): 1.0 kBProgress (1): 2.7 kBProgress (1): 6.0 kBProgress (1): 8.1 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/build-helper-maven-plugin/3.6.1/build-helper-maven-plugin-3.6.1.pom (8.1 kB at 13 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/mojo-parent/91/mojo-parent-91.pom
+Progress (1): 715 BProgress (1): 1.6 kBProgress (1): 5.2 kBProgress (1): 7.2 kBProgress (1): 8.9 kBProgress (1): 11 kB Progress (1): 14 kBProgress (1): 17 kBProgress (1): 23 kBProgress (1): 27 kBProgress (1): 28 kBProgress (1): 31 kBProgress (1): 35 kBProgress (1): 38 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/mojo-parent/91/mojo-parent-91.pom (38 kB at 312 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/junit/junit-bom/5.13.0/junit-bom-5.13.0.pom
+Progress (1): 908 BProgress (1): 2.3 kBProgress (1): 5.6 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/junit-bom/5.13.0/junit-bom-5.13.0.pom (5.6 kB at 73 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/build-helper-maven-plugin/3.6.1/build-helper-maven-plugin-3.6.1.jar
+Progress (1): 0.9/72 kBProgress (1): 2.3/72 kBProgress (1): 3.6/72 kBProgress (1): 5.0/72 kBProgress (1): 6.4/72 kBProgress (1): 7.7/72 kBProgress (1): 9.1/72 kBProgress (1): 10/72 kB Progress (1): 12/72 kBProgress (1): 13/72 kBProgress (1): 15/72 kBProgress (1): 15/72 kBProgress (1): 17/72 kBProgress (1): 18/72 kBProgress (1): 20/72 kBProgress (1): 21/72 kBProgress (1): 22/72 kBProgress (1): 24/72 kBProgress (1): 25/72 kBProgress (1): 26/72 kBProgress (1): 28/72 kBProgress (1): 29/72 kBProgress (1): 30/72 kBProgress (1): 32/72 kBProgress (1): 33/72 kBProgress (1): 35/72 kBProgress (1): 36/72 kBProgress (1): 37/72 kBProgress (1): 39/72 kBProgress (1): 43/72 kBProgress (1): 47/72 kBProgress (1): 51/72 kBProgress (1): 56/72 kBProgress (1): 60/72 kBProgress (1): 64/72 kBProgress (1): 68/72 kBProgress (1): 72 kB                      Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/build-helper-maven-plugin/3.6.1/build-helper-maven-plugin-3.6.1.jar (72 kB at 487 kB/s)
+[INFO] 
+[INFO] ---------------------< com.photoalbum:photo-album >---------------------
+[INFO] Building Photo Album 1.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ photo-album ---
+[INFO] Effective-POM written to: C:\AppDev\PhotoAlbum-Java\PhotoAlbum-Java\effective-pom-3f55fb3b-873a-41d6-889e-ba94aa78e1ef.log
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  7.435 s
+[INFO] Finished at: 2026-06-26T16:24:20+02:00
+[INFO] ------------------------------------------------------------------------
+2026-06-26T14:24:20.668Z [INFO] [BaseBuildTool] Found 1 modules: .
+2026-06-26T14:24:20.685Z [INFO] [BaseBuildTool] Finish counting Java and class files
+2026-06-26T14:24:20.686Z [INFO] [MavenBuildTool] Cleaning C:\AppDev\PhotoAlbum-Java\PhotoAlbum-Java using Maven
+2026-06-26T14:24:20.686Z [INFO] [Environment] Running command (Java undefined): mvn clean -q -B -fn
+2026-06-26T14:24:40.390Z [INFO] ----------------------invoke appmod-report-event----------------------
+2026-06-26T14:24:40.390Z [INFO] [Tool.invoke]({name: appmod-report-event, modelId: mcp-client, input: {
+  "sessionId": "20260626141848",
+  "projectPath": "C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java",
+  "event": "upgradeStepCompleted",
+  "status": "succeeded",
+  "phase": "execute",
+  "details": {}
+}}).
+2026-06-26T14:24:40.391Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:24:40.391Z [INFO] [Tool.invoke]({result: {
+  "message": "Event 'upgradeStepCompleted' reported!\nSession ID: 20260626141848,\nSession Dir: C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java\\.github\\modernize\\java-upgrade\\20260626141848"
+}}).
+2026-06-26T14:24:40.392Z [INFO] ----------------------invoked appmod-report-event----------------------
+2026-06-26T14:24:40.394Z [INFO] ----------------------invoke appmod-report-event----------------------
+2026-06-26T14:24:40.395Z [INFO] [Tool.invoke]({name: appmod-report-event, modelId: mcp-client, input: {
+  "sessionId": "20260626141848",
+  "projectPath": "C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java",
+  "event": "upgradeStepCompleted",
+  "status": "succeeded",
+  "phase": "execute",
+  "details": {}
+}}).
+2026-06-26T14:24:40.395Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:24:40.396Z [INFO] [Tool.invoke]({result: {
+  "message": "Event 'upgradeStepCompleted' reported!\nSession ID: 20260626141848,\nSession Dir: C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java\\.github\\modernize\\java-upgrade\\20260626141848"
+}}).
+2026-06-26T14:24:40.396Z [INFO] ----------------------invoked appmod-report-event----------------------
+2026-06-26T14:24:44.485Z [INFO] ----------------------invoke appmod-report-event----------------------
+2026-06-26T14:24:44.485Z [INFO] [Tool.invoke]({name: appmod-report-event, modelId: mcp-client, input: {
+  "sessionId": "20260626141848",
+  "projectPath": "C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java",
+  "event": "upgradeStepStarted",
+  "status": "succeeded",
+  "phase": "execute",
+  "details": {}
+}}).
+2026-06-26T14:24:44.486Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:24:44.486Z [INFO] [Tool.invoke]({result: {
+  "message": "Event 'upgradeStepStarted' reported!\nSession ID: 20260626141848,\nSession Dir: C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java\\.github\\modernize\\java-upgrade\\20260626141848"
+}}).
+2026-06-26T14:24:44.487Z [INFO] ----------------------invoked appmod-report-event----------------------
+2026-06-26T14:25:10.757Z [INFO] ----------------------invoke appmod-report-event----------------------
+2026-06-26T14:25:10.758Z [INFO] [Tool.invoke]({name: appmod-report-event, modelId: mcp-client, input: {
+  "sessionId": "20260626141848",
+  "projectPath": "C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java",
+  "event": "upgradeStepCompleted",
+  "status": "succeeded",
+  "phase": "execute",
+  "details": {}
+}}).
+2026-06-26T14:25:10.759Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:25:10.760Z [INFO] [Tool.invoke]({result: {
+  "message": "Event 'upgradeStepCompleted' reported!\nSession ID: 20260626141848,\nSession Dir: C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java\\.github\\modernize\\java-upgrade\\20260626141848"
+}}).
+2026-06-26T14:25:10.760Z [INFO] ----------------------invoked appmod-report-event----------------------
+2026-06-26T14:25:16.011Z [INFO] ----------------------invoke appmod-report-event----------------------
+2026-06-26T14:25:16.012Z [INFO] [Tool.invoke]({name: appmod-report-event, modelId: mcp-client, input: {
+  "sessionId": "20260626141848",
+  "projectPath": "C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java",
+  "event": "upgradeStepStarted",
+  "status": "succeeded",
+  "phase": "execute",
+  "details": {}
+}}).
+2026-06-26T14:25:16.014Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:25:16.016Z [INFO] [Tool.invoke]({result: {
+  "message": "Event 'upgradeStepStarted' reported!\nSession ID: 20260626141848,\nSession Dir: C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java\\.github\\modernize\\java-upgrade\\20260626141848"
+}}).
+2026-06-26T14:25:16.018Z [INFO] ----------------------invoked appmod-report-event----------------------
+2026-06-26T14:26:45.954Z [INFO] ----------------------invoke appmod-report-event----------------------
+2026-06-26T14:26:45.955Z [INFO] [Tool.invoke]({name: appmod-report-event, modelId: mcp-client, input: {
+  "sessionId": "20260626141848",
+  "projectPath": "C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java",
+  "event": "testCompleted",
+  "status": "succeeded",
+  "phase": "execute"
+}}).
+2026-06-26T14:26:45.955Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:26:45.956Z [INFO] [Tool.invoke]({result: {
+  "message": "Event 'testCompleted' reported!\nSession ID: 20260626141848,\nSession Dir: C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java\\.github\\modernize\\java-upgrade\\20260626141848"
+}}).
+2026-06-26T14:26:45.956Z [INFO] ----------------------invoked appmod-report-event----------------------
