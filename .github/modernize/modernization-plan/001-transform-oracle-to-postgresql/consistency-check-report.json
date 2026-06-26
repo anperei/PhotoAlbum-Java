@@ -1,0 +1,52 @@
+[
+  {
+    "file": "pom.xml",
+    "description": "Replaced Oracle JDBC driver (ojdbc11) with PostgreSQL JDBC driver. Updated project description from 'Oracle DB' to 'PostgreSQL'. This is the primary database driver change required for the Oracle to PostgreSQL migration. The change is functionally correct and maintains compatibility with the application's JPA/Hibernate configuration.",
+    "issues": []
+  },
+  {
+    "file": "src/main/resources/application.properties",
+    "description": "Updated datasource configuration from Oracle-specific JDBC URL (jdbc:oracle:thin:@oracle-db:1521/FREEPDB1) to PostgreSQL JDBC URL (jdbc:postgresql://${POSTGRESQL_SERVER}.postgres.database.azure.com:${POSTGRESQL_PORT}/${POSTGRESQL_DATABASE}?sslmode=require). Updated Hibernate dialect from OracleDialect to PostgreSQLDialect. Configuration now uses environment variables for connection parameters instead of hardcoded values, which is appropriate for cloud-native deployment.",
+    "issues": [
+      {
+        "severity": "Minor",
+        "description": "Environment variables (POSTGRESQL_SERVER, POSTGRESQL_PORT, POSTGRESQL_DATABASE, POSTGRESQL_USERNAME, POSTGRESQL_PASSWORD) are referenced but no default values or validation is provided. Comments indicate these must be set manually. Ensure these variables are properly configured in the deployment environment."
+      }
+    ]
+  },
+  {
+    "file": "src/main/resources/application-docker.properties",
+    "description": "Updated Docker-specific datasource configuration from Oracle (jdbc:oracle:thin:@oracle-db:1521:XE) to PostgreSQL (jdbc:postgresql://${POSTGRESQL_SERVER}.postgres.database.azure.com...). Updated Hibernate dialect from OracleDialect to PostgreSQLDialect. Configuration now uses environment variables for all connection parameters. Comment updated from 'Oracle database' to 'Azure Database for PostgreSQL'.",
+    "issues": [
+      {
+        "severity": "Minor",
+        "description": "Environment variables must be set for Docker container deployment. Ensure Docker configuration or orchestration tool (e.g., Kubernetes, Docker Compose, Azure Container Apps) properly sets these environment variables at runtime."
+      }
+    ]
+  },
+  {
+    "file": "src/test/resources/application-test.properties",
+    "description": "Updated H2 test database URL from 'jdbc:h2:mem:testdb' to 'jdbc:h2:mem:testdb;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE'. This enables PostgreSQL compatibility mode in H2, ensuring test queries using PostgreSQL syntax are properly executed. This is important for maintaining test coverage during the migration.",
+    "issues": []
+  },
+  {
+    "file": "src/main/java/com/photoalbum/model/Photo.java",
+    "description": "Updated column definitions and comments to PostgreSQL equivalents: (1) Changed @Column columnDefinition from 'NUMBER(19,0)' to 'bigint' for fileSize field - both are suitable for storing large integers; (2) Changed uploadedAt columnDefinition from 'TIMESTAMP DEFAULT SYSTIMESTAMP' (Oracle) to 'TIMESTAMP DEFAULT CURRENT_TIMESTAMP' (PostgreSQL); (3) Updated comments from 'Oracle database' to 'PostgreSQL database'. All changes maintain functional equivalence.",
+    "issues": []
+  },
+  {
+    "file": "src/main/java/com/photoalbum/repository/PhotoRepository.java",
+    "description": "Comprehensive SQL query updates for PostgreSQL compatibility: (1) Converted table and column names from UPPERCASE to lowercase per PostgreSQL convention; (2) Replaced Oracle's ROWNUM pagination with PostgreSQL's ROW_NUMBER() OVER() window function in findPhotosWithPagination(); (3) Replaced Oracle's NVL() function with PostgreSQL's COALESCE() function; (4) Replaced Oracle's ROWNUM subquery pattern with PostgreSQL's LIMIT/OFFSET syntax where applicable; (5) Updated comments from 'Oracle specific' to generic descriptions. All query conversions maintain functional equivalence and proper result ordering.",
+    "issues": [
+      {
+        "severity": "Minor",
+        "description": "TO_CHAR function for date formatting (used in findPhotosByUploadMonth) is supported in PostgreSQL but ensure the date format strings ('YYYY', 'MM') produce expected results with the actual data types in the database."
+      }
+    ]
+  },
+  {
+    "file": "src/main/java/com/photoalbum/service/impl/PhotoServiceImpl.java",
+    "description": "Updated comments and log messages to remove Oracle-specific references. Changes include: (1) Comment updated from 'Store actual photo data in Oracle database' to 'Store actual photo data in PostgreSQL database'; (2) Log messages updated from 'Oracle database' to generic 'database' references in uploadPhoto() and deletePhoto() methods. These are non-functional changes that improve code clarity and remove database-specific coupling from service layer.",
+    "issues": []
+  }
+]
