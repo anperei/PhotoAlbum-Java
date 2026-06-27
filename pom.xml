@@ -25,6 +25,8 @@
         <maven.compiler.source>25</maven.compiler.source>
         <maven.compiler.target>25</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- CVE-2026-54515: jackson-databind case-insensitive deserialization bypass; 2.21.5 not yet released -->
+        <jackson-2-bom.version>2.22.0</jackson-2-bom.version>
     </properties>
 
     <dependencyManagement>
