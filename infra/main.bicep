@@ -19,6 +19,9 @@ param pgLocation string = 'westus3'
 @description('Name of the application database to create in PostgreSQL')
 param databaseName string = 'photoalbum'
 
+@description('Application Insights connection string for telemetry export. Keep empty to skip wiring.')
+param appInsightsConnectionString string = ''
+
 // Resource token — scoped to subscription + resource group + location + environment name
 var resourceToken = uniqueString(subscription().id, resourceGroup().id, location, environmentName)
 
@@ -100,6 +103,7 @@ module containerApp 'modules/containerapp.bicep' = {
     identityId: identity.outputs.identityId
     identityClientId: identity.outputs.identityClientId
     identityName: identity.outputs.identityName
+    appInsightsConnectionString: appInsightsConnectionString
   }
 }
 // Note: implicit dependency on registry module already exists via registryLoginServer param reference.

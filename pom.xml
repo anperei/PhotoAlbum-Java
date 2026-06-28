@@ -61,6 +61,12 @@
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
+        <!-- Spring Boot Actuator for metrics/observability endpoints -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
         <!-- PostgreSQL JDBC Driver -->
         <dependency>
             <groupId>org.postgresql</groupId>
@@ -72,6 +78,18 @@
         <dependency>
             <groupId>com.azure.spring</groupId>
             <artifactId>spring-cloud-azure-starter-jdbc-postgresql</artifactId>
+        </dependency>
+
+        <!-- Spring Cloud Azure Monitor starter for Application Insights telemetry export -->
+        <dependency>
+            <groupId>com.azure.spring</groupId>
+            <artifactId>spring-cloud-azure-starter-monitor</artifactId>
+        </dependency>
+
+        <!-- OpenTelemetry API for custom spans/events -->
+        <dependency>
+            <groupId>io.opentelemetry</groupId>
+            <artifactId>opentelemetry-api</artifactId>
         </dependency>
 
         <!-- Spring Boot Validation -->

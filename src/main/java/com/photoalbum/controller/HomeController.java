@@ -3,6 +3,7 @@ package com.photoalbum.controller;
 import com.photoalbum.model.Photo;
 import com.photoalbum.model.UploadResult;
 import com.photoalbum.service.PhotoService;
+import com.photoalbum.telemetry.AppTelemetryService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import jakarta.servlet.http.HttpServletRequest;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,9 +28,11 @@ public class HomeController {
     private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
     private final PhotoService photoService;
+    private final AppTelemetryService telemetryService;
 
-    public HomeController(PhotoService photoService) {
+    public HomeController(PhotoService photoService, AppTelemetryService telemetryService) {
         this.photoService = photoService;
+        this.telemetryService = telemetryService;
     }
 
     /**
@@ -54,10 +58,21 @@ public class HomeController {
      */
     @PostMapping("/upload")
     @ResponseBody
-    public ResponseEntity<Map<String, Object>> uploadPhotos(@RequestParam("files") List<MultipartFile> files) {
+    public ResponseEntity<Map<String, Object>> uploadPhotos(
+            @RequestParam("files") List<MultipartFile> files,
+            HttpServletRequest request) {
         Map<String, Object> response = new HashMap<String, Object>();
         List<Map<String, Object>> uploadedPhotos = new ArrayList<Map<String, Object>>();
         List<Map<String, Object>> failedUploads = new ArrayList<Map<String, Object>>();
+        long batchStartMs = System.currentTimeMillis();
+        String sessionId = request.getSession(false) != null ? request.getSession(false).getId() : "unknown";
+        String visitorId = "unknown";
+        if (request.getSession(false) != null) {
+            Object visitor = request.getSession(false).getAttribute("telemetry.visitorId");
+            if (visitor != null && !visitor.toString().isBlank()) {
+                visitorId = visitor.toString();
+            }
+        }
 
         if (files == null || files.isEmpty()) {
             response.put("success", false);
@@ -66,6 +81,7 @@ public class HomeController {
         }
 
         for (MultipartFile file : files) {
+            long fileStartMs = System.currentTimeMillis();
             UploadResult result = photoService.uploadPhoto(file);
 
             if (result.isSuccess()) {
@@ -82,17 +98,45 @@ public class HomeController {
                     uploadedPhoto.put("height", photo.getHeight());
                     uploadedPhotos.add(uploadedPhoto);
                 }
+
+                telemetryService.trackUploadFile(
+                        sessionId,
+                        visitorId,
+                        file.getOriginalFilename(),
+                        file.getContentType(),
+                        file.getSize(),
+                        System.currentTimeMillis() - fileStartMs,
+                        true,
+                        null);
             } else {
                 Map<String, Object> failedUpload = new HashMap<String, Object>();
                 failedUpload.put("fileName", result.getFileName());
                 failedUpload.put("error", result.getErrorMessage());
                 failedUploads.add(failedUpload);
+
+                telemetryService.trackUploadFile(
+                        sessionId,
+                        visitorId,
+                        result.getFileName(),
+                        file.getContentType(),
+                        file.getSize(),
+                        System.currentTimeMillis() - fileStartMs,
+                        false,
+                        result.getErrorMessage());
             }
         }
 
         response.put("success", !uploadedPhotos.isEmpty());
         response.put("uploadedPhotos", uploadedPhotos);
         response.put("failedUploads", failedUploads);
+
+        telemetryService.trackUploadBatch(
+                sessionId,
+                visitorId,
+                files.size(),
+                uploadedPhotos.size(),
+                failedUploads.size(),
+                System.currentTimeMillis() - batchStartMs);
 
         return ResponseEntity.ok(response);
     }

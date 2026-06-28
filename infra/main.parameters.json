@@ -16,6 +16,9 @@
     },
     "pgLocation": {
       "value": "westus3"
+    },
+    "appInsightsConnectionString": {
+      "value": ""
     }
   }
 }

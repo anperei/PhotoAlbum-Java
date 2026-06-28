@@ -2,12 +2,14 @@ package com.photoalbum.controller;
 
 import com.photoalbum.model.Photo;
 import com.photoalbum.service.PhotoService;
+import com.photoalbum.telemetry.AppTelemetryService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import jakarta.servlet.http.HttpServletRequest;
 
 import java.util.Optional;
 
@@ -21,9 +23,11 @@ public class DetailController {
     private static final Logger logger = LoggerFactory.getLogger(DetailController.class);
 
     private final PhotoService photoService;
+    private final AppTelemetryService telemetryService;
 
-    public DetailController(PhotoService photoService) {
+    public DetailController(PhotoService photoService, AppTelemetryService telemetryService) {
         this.photoService = photoService;
+        this.telemetryService = telemetryService;
     }
 
     /**
@@ -62,18 +66,58 @@ public class DetailController {
      * Handles POST requests to delete a photo
      */
     @PostMapping("/{id}/delete")
-    public String deletePhoto(@PathVariable String id, RedirectAttributes redirectAttributes) {
+    public String deletePhoto(@PathVariable String id, RedirectAttributes redirectAttributes, HttpServletRequest request) {
+        long deleteStartMs = System.currentTimeMillis();
+        String sessionId = request.getSession(false) != null ? request.getSession(false).getId() : "unknown";
+        String visitorId = "unknown";
+        if (request.getSession(false) != null) {
+            Object visitor = request.getSession(false).getAttribute("telemetry.visitorId");
+            if (visitor != null && !visitor.toString().isBlank()) {
+                visitorId = visitor.toString();
+            }
+        }
+        String fileName = "unknown";
+
+        Optional<Photo> photoBeforeDelete = photoService.getPhotoById(id);
+        if (photoBeforeDelete.isPresent()) {
+            fileName = photoBeforeDelete.get().getOriginalFileName();
+        }
+
         try {
             boolean deleted = photoService.deletePhoto(id);
             if (deleted) {
                 logger.info("Photo {} deleted successfully", id);
                 redirectAttributes.addFlashAttribute("successMessage", "Photo deleted successfully");
+                telemetryService.trackDelete(
+                        sessionId,
+                        visitorId,
+                        id,
+                        fileName,
+                        System.currentTimeMillis() - deleteStartMs,
+                        true,
+                        null);
             } else {
                 redirectAttributes.addFlashAttribute("errorMessage", "Photo not found");
+                telemetryService.trackDelete(
+                        sessionId,
+                        visitorId,
+                        id,
+                        fileName,
+                        System.currentTimeMillis() - deleteStartMs,
+                        false,
+                        "Photo not found");
             }
         } catch (Exception ex) {
             logger.error("Error deleting photo {}", id, ex);
             redirectAttributes.addFlashAttribute("errorMessage", "Failed to delete photo. Please try again.");
+            telemetryService.trackDelete(
+                    sessionId,
+                    visitorId,
+                    id,
+                    fileName,
+                    System.currentTimeMillis() - deleteStartMs,
+                    false,
+                    ex.getMessage());
         }
         return "redirect:/";
     }

@@ -19,6 +19,9 @@ param identityClientId string
 @description('Name of the User-Assigned Managed Identity (used as PostgreSQL username)')
 param identityName string
 
+@description('Application Insights connection string. Leave empty to disable telemetry export wiring.')
+param appInsightsConnectionString string = ''
+
 resource containerApp 'Microsoft.App/containerApps@2023-05-01' = {
   name: name
   location: location
@@ -62,7 +65,7 @@ resource containerApp 'Microsoft.App/containerApps@2023-05-01' = {
             cpu: json('0.5')
             memory: '1Gi'
           }
-          env: [
+          env: concat([
             {
               name: 'SPRING_PROFILES_ACTIVE'
               value: 'docker'
@@ -88,7 +91,14 @@ resource containerApp 'Microsoft.App/containerApps@2023-05-01' = {
               name: 'SERVER_PORT'
               value: '8080'
             }
-          ]
+          ], empty(appInsightsConnectionString)
+            ? []
+            : [
+                {
+                  name: 'APPLICATIONINSIGHTS_CONNECTION_STRING'
+                  value: appInsightsConnectionString
+                }
+              ])
         }
       ]
       scale: {
