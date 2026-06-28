@@ -1,0 +1,58 @@
+{
+  "version": "Notebook/1.0",
+  "items": [
+    {
+      "type": 1,
+      "content": {
+        "json": "# Photo Album Telemetry\\nUse this workbook to monitor sessions, uploads, and deletes from Application Insights telemetry emitted by the app."
+      }
+    },
+    {
+      "type": 3,
+      "content": {
+        "version": "KqlItem/1.0",
+        "query": "AppDependencies\\n| where Name in ('photo.session.activity', 'photo.session.ended')\\n| extend p = todynamic(Properties)\\n| summarize AvgSessionMs = avg(todouble(p.sessionDurationMs)), MaxSessionMs = max(todouble(p.sessionDurationMs)) by bin(TimeGenerated, 15m)\\n| order by TimeGenerated asc",
+        "size": 0,
+        "title": "Session Duration Trend"
+      }
+    },
+    {
+      "type": 3,
+      "content": {
+        "version": "KqlItem/1.0",
+        "query": "AppDependencies\\n| where Name in ('photo.upload.file', 'photo.upload.batch')\\n| extend p = todynamic(Properties)\\n| summarize Uploads = count(), Success = countif(tostring(p.result) == 'success'), Failed = countif(tostring(p.result) == 'failure') by bin(TimeGenerated, 15m)\\n| order by TimeGenerated asc",
+        "size": 0,
+        "title": "Upload Success vs Failure"
+      }
+    },
+    {
+      "type": 3,
+      "content": {
+        "version": "KqlItem/1.0",
+        "query": "AppDependencies\\n| where Name == 'photo.delete'\\n| extend p = todynamic(Properties)\\n| summarize Deletes = count(), Success = countif(tostring(p.result) == 'success'), Failed = countif(tostring(p.result) == 'failure') by bin(TimeGenerated, 15m)\\n| order by TimeGenerated asc",
+        "size": 0,
+        "title": "Delete Success vs Failure"
+      }
+    },
+    {
+      "type": 3,
+      "content": {
+        "version": "KqlItem/1.0",
+        "query": "AppDependencies\\n| where Name in ('photo.upload.file', 'photo.delete')\\n| summarize P50DurationMs = percentile(DurationMs, 50), P95DurationMs = percentile(DurationMs, 95) by Name, bin(TimeGenerated, 15m)\\n| order by TimeGenerated asc",
+        "size": 0,
+        "title": "Operation Latency (P50/P95)"
+      }
+    },
+    {
+      "type": 3,
+      "content": {
+        "version": "KqlItem/1.0",
+        "query": "AppDependencies\\n| where Name == 'photo.upload.file'\\n| extend p = todynamic(Properties)\\n| summarize Count = count() by FileType = tostring(p.mimeType)\\n| order by Count desc",
+        "size": 0,
+        "title": "Top Uploaded File Types"
+      }
+    }
+  ],
+  "isLocked": false,
+  "fallbackResourceIds": []
+}
