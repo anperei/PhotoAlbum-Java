@@ -1,0 +1,680 @@
+2026-06-26T14:18:48.512Z [INFO] ----------------------invoke appmod-report-event----------------------
+2026-06-26T14:18:48.512Z [INFO] [Tool.invoke]({name: appmod-report-event, modelId: mcp-client, input: {
+  "projectPath": "C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java",
+  "event": "precheckCompleted",
+  "status": "succeeded",
+  "phase": "precheck",
+  "details": {}
+}}).
+2026-06-26T14:18:48.513Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:18:48.516Z [INFO] Project C:\AppDev\PhotoAlbum-Java\PhotoAlbum-Java is a maven project, try to get java version from pom.xml
+2026-06-26T14:18:48.518Z [INFO] [Tool.invoke]({result: {
+  "message": "Event 'precheckCompleted' reported!\nSession ID: 20260626141848,\nSession Dir: C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java\\.github\\modernize\\java-upgrade\\20260626141848"
+}}).
+2026-06-26T14:18:48.528Z [INFO] ----------------------invoked appmod-report-event----------------------
+2026-06-26T14:18:48.534Z [INFO] ----------------------invoke appmod-list-jdks----------------------
+2026-06-26T14:18:48.534Z [INFO] [Tool.invoke]({name: appmod-list-jdks, modelId: mcp-client, input: {}}).
+2026-06-26T14:18:48.535Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:18:48.536Z [INFO] ----------------------invoke appmod-list-mavens----------------------
+2026-06-26T14:18:48.537Z [INFO] [Tool.invoke]({name: appmod-list-mavens, modelId: mcp-client, input: {}}).
+2026-06-26T14:18:48.537Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:18:48.542Z [INFO] Project java version: 8
+2026-06-26T14:18:48.542Z [INFO] Maven project detected.
+2026-06-26T14:18:48.543Z [INFO] Build tool type: mvn
+2026-06-26T14:18:48.546Z [INFO] [Tool.invoke]({result: {
+  "message": "No Maven installations found."
+}}).
+2026-06-26T14:18:48.546Z [INFO] ----------------------invoked appmod-list-mavens----------------------
+2026-06-26T14:18:48.563Z [INFO] [Tool.invoke]({result: {
+  "message": "No JDK installations found."
+}}).
+2026-06-26T14:18:48.564Z [INFO] ----------------------invoked appmod-list-jdks----------------------
+2026-06-26T14:18:48.578Z [INFO] JDK: undefined
+2026-06-26T14:18:48.579Z [ERROR] Failed to detect or resolve JDK for the project at C:\AppDev\PhotoAlbum-Java\PhotoAlbum-Java.
+2026-06-26T14:18:48.580Z [WARN] [ReportEventTool] Full project info unavailable, attempting lightweight fallback: UserError: Failed to detect or resolve JDK for the project at C:\AppDev\PhotoAlbum-Java\PhotoAlbum-Java. Please ensure JDK 8 is installed and properly configured on the machine.
+2026-06-26T14:18:48.600Z [INFO] Maven project detected.
+2026-06-26T14:18:48.601Z [INFO] Project C:\AppDev\PhotoAlbum-Java\PhotoAlbum-Java is a maven project, try to get java version from pom.xml
+2026-06-26T14:19:25.763Z [INFO] ----------------------invoke appmod-report-event----------------------
+2026-06-26T14:19:25.764Z [INFO] [Tool.invoke]({name: appmod-report-event, modelId: mcp-client, input: {
+  "sessionId": "20260626141848",
+  "projectPath": "C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java",
+  "event": "planGenerationStarted",
+  "status": "succeeded",
+  "phase": "plan"
+}}).
+2026-06-26T14:19:25.765Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:19:25.766Z [INFO] [Tool.invoke]({result: {
+  "message": "Event 'planGenerationStarted' reported!\nSession ID: 20260626141848,\nSession Dir: C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java\\.github\\modernize\\java-upgrade\\20260626141848"
+}}).
+2026-06-26T14:19:25.767Z [INFO] ----------------------invoked appmod-report-event----------------------
+2026-06-26T14:20:32.127Z [INFO] ----------------------invoke appmod-report-event----------------------
+2026-06-26T14:20:32.127Z [INFO] [Tool.invoke]({name: appmod-report-event, modelId: mcp-client, input: {
+  "sessionId": "20260626141848",
+  "projectPath": "C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java",
+  "event": "planReviewed",
+  "status": "succeeded",
+  "phase": "plan"
+}}).
+2026-06-26T14:20:32.128Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:20:32.129Z [INFO] [Tool.invoke]({result: {
+  "message": "Event 'planReviewed' reported!\nSession ID: 20260626141848,\nSession Dir: C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java\\.github\\modernize\\java-upgrade\\20260626141848"
+}}).
+2026-06-26T14:20:32.129Z [INFO] ----------------------invoked appmod-report-event----------------------
+2026-06-26T14:20:34.929Z [INFO] ----------------------invoke appmod-confirm-upgrade-plan----------------------
+2026-06-26T14:20:34.929Z [INFO] [Tool.invoke]({name: appmod-confirm-upgrade-plan, modelId: mcp-client, input: {
+  "sessionId": "20260626141848"
+}}).
+2026-06-26T14:20:34.931Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:20:34.931Z [INFO] Upgrade plan confirmed successfully.
+2026-06-26T14:20:34.932Z [INFO] [Tool.invoke]({result: {
+  "message": "Generated plan is reviewed and confirmed by the user! the upgrade process will start now."
+}}).
+2026-06-26T14:20:34.932Z [INFO] ----------------------invoked appmod-confirm-upgrade-plan----------------------
+2026-06-26T14:20:54.059Z [INFO] ----------------------invoke appmod-report-event----------------------
+2026-06-26T14:20:54.059Z [INFO] [Tool.invoke]({name: appmod-report-event, modelId: mcp-client, input: {
+  "sessionId": "20260626141848",
+  "projectPath": "C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java",
+  "event": "planExecutionStarted",
+  "status": "succeeded",
+  "phase": "execute"
+}}).
+2026-06-26T14:20:54.060Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:20:54.160Z [INFO] [Tool.invoke]({result: {
+  "message": "Event 'planExecutionStarted' reported!\nSession ID: 20260626141848,\nSession Dir: C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java\\.github\\modernize\\java-upgrade\\20260626141848"
+}}).
+2026-06-26T14:20:54.161Z [INFO] ----------------------invoked appmod-report-event----------------------
+2026-06-26T14:21:03.092Z [INFO] ----------------------invoke appmod-install-jdk----------------------
+2026-06-26T14:21:03.092Z [INFO] [Tool.invoke]({name: appmod-install-jdk, modelId: mcp-client, input: {
+  "sessionId": "20260626141848",
+  "version": "25"
+}}).
+2026-06-26T14:21:03.093Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:21:03.103Z [INFO] ----------------------invoke appmod-install-maven----------------------
+2026-06-26T14:21:03.104Z [INFO] [Tool.invoke]({name: appmod-install-maven, modelId: mcp-client, input: {
+  "sessionId": "20260626141848",
+  "version": "latest"
+}}).
+2026-06-26T14:21:03.104Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:21:05.612Z [INFO] [Tool.invoke]({result: {
+  "result": {
+    "name": "mvn",
+    "path": "C:\\Users\\anperei\\.maven\\maven-3.9.16\\bin",
+    "version": "3.9.16"
+  },
+  "message": "Maven latest is installed at C:\\Users\\anperei\\.maven\\maven-3.9.16\\bin",
+  "telemetry": {
+    "tool": "Maven",
+    "version": "latest"
+  }
+}}).
+2026-06-26T14:21:05.612Z [INFO] ----------------------invoked appmod-install-maven----------------------
+2026-06-26T14:21:17.561Z [INFO] [Tool.invoke]({result: {
+  "result": {
+    "name": "java",
+    "path": "C:\\Users\\anperei\\AppData\\Local\\jdks\\jdk-25.0.2\\bin",
+    "version": "25.0.2"
+  },
+  "message": "JDK 25 is installed at C:\\Users\\anperei\\AppData\\Local\\jdks\\jdk-25.0.2\\bin",
+  "telemetry": {
+    "tool": "JDK",
+    "version": "25"
+  }
+}}).
+2026-06-26T14:21:17.562Z [INFO] ----------------------invoked appmod-install-jdk----------------------
+2026-06-26T14:21:22.091Z [INFO] ----------------------invoke appmod-list-jdks----------------------
+2026-06-26T14:21:22.092Z [INFO] [Tool.invoke]({name: appmod-list-jdks, modelId: mcp-client, input: {
+  "sessionId": "20260626141848"
+}}).
+2026-06-26T14:21:22.092Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:21:22.138Z [INFO] [Tool.invoke]({result: {
+  "message": "We found following jdks in your system:\n\n1. Java 25.0.2\n   📁 Path: C:\\Users\\anperei\\AppData\\Local\\jdks\\jdk-25.0.2\\bin\n   🏷️ Source: install\n\nTotal: 1 JDK installation(s) found"
+}}).
+2026-06-26T14:21:22.139Z [INFO] ----------------------invoked appmod-list-jdks----------------------
+2026-06-26T14:21:26.281Z [INFO] ----------------------invoke appmod-report-event----------------------
+2026-06-26T14:21:26.281Z [INFO] [Tool.invoke]({name: appmod-report-event, modelId: mcp-client, input: {
+  "sessionId": "20260626141848",
+  "projectPath": "C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java",
+  "event": "environmentSetup",
+  "status": "succeeded",
+  "phase": "execute",
+  "details": {}
+}}).
+2026-06-26T14:21:26.282Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:21:26.282Z [INFO] Project C:\AppDev\PhotoAlbum-Java\PhotoAlbum-Java is a maven project, try to get java version from pom.xml
+2026-06-26T14:21:26.283Z [INFO] [Tool.invoke]({result: {
+  "message": "Event 'environmentSetup' reported!\nSession ID: 20260626141848,\nSession Dir: C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java\\.github\\modernize\\java-upgrade\\20260626141848"
+}}).
+2026-06-26T14:21:26.284Z [INFO] ----------------------invoked appmod-report-event----------------------
+2026-06-26T14:21:26.286Z [INFO] Project java version: 8
+2026-06-26T14:21:26.287Z [INFO] Maven project detected.
+2026-06-26T14:21:26.287Z [INFO] Build tool type: mvn
+2026-06-26T14:21:26.385Z [INFO] JDK: undefined
+2026-06-26T14:21:26.386Z [ERROR] Failed to detect or resolve JDK for the project at C:\AppDev\PhotoAlbum-Java\PhotoAlbum-Java.
+2026-06-26T14:21:26.387Z [WARN] [ReportEventTool] Full project info unavailable, attempting lightweight fallback: UserError: Failed to detect or resolve JDK for the project at C:\AppDev\PhotoAlbum-Java\PhotoAlbum-Java. Please ensure JDK 8 is installed and properly configured on the machine.
+2026-06-26T14:21:26.388Z [INFO] Maven project detected.
+2026-06-26T14:21:26.390Z [INFO] Project C:\AppDev\PhotoAlbum-Java\PhotoAlbum-Java is a maven project, try to get java version from pom.xml
+2026-06-26T14:21:40.335Z [INFO] ----------------------invoke appmod-report-event----------------------
+2026-06-26T14:21:40.336Z [INFO] [Tool.invoke]({name: appmod-report-event, modelId: mcp-client, input: {
+  "sessionId": "20260626141848",
+  "projectPath": "C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java",
+  "event": "baselineSetup",
+  "status": "skipped",
+  "phase": "execute",
+  "message": "JDK 8 not available on system — baseline step skipped"
+}}).
+2026-06-26T14:21:40.336Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:21:40.337Z [INFO] [Tool.invoke]({result: {
+  "message": "Event 'baselineSetup' reported!\nSession ID: 20260626141848,\nSession Dir: C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java\\.github\\modernize\\java-upgrade\\20260626141848"
+}}).
+2026-06-26T14:21:40.337Z [INFO] ----------------------invoked appmod-report-event----------------------
+2026-06-26T14:21:45.231Z [INFO] ----------------------invoke appmod-report-event----------------------
+2026-06-26T14:21:45.232Z [INFO] [Tool.invoke]({name: appmod-report-event, modelId: mcp-client, input: {
+  "sessionId": "20260626141848",
+  "projectPath": "C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java",
+  "event": "upgradeStepStarted",
+  "status": "succeeded",
+  "phase": "execute",
+  "details": {}
+}}).
+2026-06-26T14:21:45.232Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:21:45.233Z [INFO] [Tool.invoke]({result: {
+  "message": "Event 'upgradeStepStarted' reported!\nSession ID: 20260626141848,\nSession Dir: C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java\\.github\\modernize\\java-upgrade\\20260626141848"
+}}).
+2026-06-26T14:21:45.234Z [INFO] ----------------------invoked appmod-report-event----------------------
+2026-06-26T14:22:20.697Z [INFO] ----------------------invoke appmod-report-event----------------------
+2026-06-26T14:22:20.698Z [INFO] [Tool.invoke]({name: appmod-report-event, modelId: mcp-client, input: {
+  "sessionId": "20260626141848",
+  "projectPath": "C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java",
+  "event": "upgradeStepStarted",
+  "status": "succeeded",
+  "phase": "execute",
+  "details": {}
+}}).
+2026-06-26T14:22:20.699Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:22:20.699Z [INFO] [Tool.invoke]({result: {
+  "message": "Event 'upgradeStepStarted' reported!\nSession ID: 20260626141848,\nSession Dir: C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java\\.github\\modernize\\java-upgrade\\20260626141848"
+}}).
+2026-06-26T14:22:20.699Z [INFO] ----------------------invoked appmod-report-event----------------------
+2026-06-26T14:24:10.851Z [INFO] ----------------------invoke appmod-report-event----------------------
+2026-06-26T14:24:10.852Z [INFO] [Tool.invoke]({name: appmod-report-event, modelId: mcp-client, input: {
+  "sessionId": "20260626141848",
+  "projectPath": "C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java",
+  "event": "buildCompleted",
+  "status": "succeeded",
+  "phase": "execute"
+}}).
+2026-06-26T14:24:10.853Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:24:10.854Z [INFO] Project C:\AppDev\PhotoAlbum-Java\PhotoAlbum-Java is a maven project, try to get java version from pom.xml
+2026-06-26T14:24:10.855Z [INFO] [Tool.invoke]({result: {
+  "message": "Event 'buildCompleted' reported!\nSession ID: 20260626141848,\nSession Dir: C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java\\.github\\modernize\\java-upgrade\\20260626141848"
+}}).
+2026-06-26T14:24:10.856Z [INFO] ----------------------invoked appmod-report-event----------------------
+2026-06-26T14:24:10.857Z [INFO] Project java version: 25
+2026-06-26T14:24:10.858Z [INFO] Maven project detected.
+2026-06-26T14:24:10.859Z [INFO] Build tool type: mvn
+2026-06-26T14:24:11.004Z [INFO] JDK: {
+  "name": "java",
+  "path": "C:\\Users\\anperei\\AppData\\Local\\jdks\\jdk-25.0.2\\bin",
+  "version": "25"
+}
+2026-06-26T14:24:11.039Z [INFO] Build tool: {
+  "name": "mvn",
+  "path": "C:\\Users\\anperei\\.maven\\maven-3.9.16\\bin",
+  "version": "",
+  "source": "install"
+}
+2026-06-26T14:24:11.040Z [INFO] Project config: {
+  "buildTool": {
+    "path": "C:\\Users\\anperei\\.maven\\maven-3.9.16\\bin",
+    "name": "mvn",
+    "version": "",
+    "source": "install"
+  },
+  "jdk": {
+    "path": "C:\\Users\\anperei\\AppData\\Local\\jdks\\jdk-25.0.2\\bin",
+    "name": "java",
+    "version": "25"
+  },
+  "name": "PhotoAlbum-Java",
+  "dir": "C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java"
+}
+2026-06-26T14:24:11.042Z [INFO] [MavenBuildTool] Getting all module coordinates of C:\AppDev\PhotoAlbum-Java\PhotoAlbum-Java
+2026-06-26T14:24:11.044Z [INFO] [MavenBuildTool] Getting effective POMs of C:\AppDev\PhotoAlbum-Java\PhotoAlbum-Java
+2026-06-26T14:24:11.047Z [INFO] [Environment] Running command (Java undefined): mvn help:effective-pom -Doutput=effective-pom-3f55fb3b-873a-41d6-889e-ba94aa78e1ef.log
+[INFO] Scanning for projects...
+Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/build-helper-maven-plugin/3.6.1/build-helper-maven-plugin-3.6.1.pom
+Progress (1): 1.0 kBProgress (1): 2.7 kBProgress (1): 6.0 kBProgress (1): 8.1 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/build-helper-maven-plugin/3.6.1/build-helper-maven-plugin-3.6.1.pom (8.1 kB at 13 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/mojo-parent/91/mojo-parent-91.pom
+Progress (1): 715 BProgress (1): 1.6 kBProgress (1): 5.2 kBProgress (1): 7.2 kBProgress (1): 8.9 kBProgress (1): 11 kB Progress (1): 14 kBProgress (1): 17 kBProgress (1): 23 kBProgress (1): 27 kBProgress (1): 28 kBProgress (1): 31 kBProgress (1): 35 kBProgress (1): 38 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/mojo-parent/91/mojo-parent-91.pom (38 kB at 312 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/junit/junit-bom/5.13.0/junit-bom-5.13.0.pom
+Progress (1): 908 BProgress (1): 2.3 kBProgress (1): 5.6 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/junit-bom/5.13.0/junit-bom-5.13.0.pom (5.6 kB at 73 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/build-helper-maven-plugin/3.6.1/build-helper-maven-plugin-3.6.1.jar
+Progress (1): 0.9/72 kBProgress (1): 2.3/72 kBProgress (1): 3.6/72 kBProgress (1): 5.0/72 kBProgress (1): 6.4/72 kBProgress (1): 7.7/72 kBProgress (1): 9.1/72 kBProgress (1): 10/72 kB Progress (1): 12/72 kBProgress (1): 13/72 kBProgress (1): 15/72 kBProgress (1): 15/72 kBProgress (1): 17/72 kBProgress (1): 18/72 kBProgress (1): 20/72 kBProgress (1): 21/72 kBProgress (1): 22/72 kBProgress (1): 24/72 kBProgress (1): 25/72 kBProgress (1): 26/72 kBProgress (1): 28/72 kBProgress (1): 29/72 kBProgress (1): 30/72 kBProgress (1): 32/72 kBProgress (1): 33/72 kBProgress (1): 35/72 kBProgress (1): 36/72 kBProgress (1): 37/72 kBProgress (1): 39/72 kBProgress (1): 43/72 kBProgress (1): 47/72 kBProgress (1): 51/72 kBProgress (1): 56/72 kBProgress (1): 60/72 kBProgress (1): 64/72 kBProgress (1): 68/72 kBProgress (1): 72 kB                      Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/build-helper-maven-plugin/3.6.1/build-helper-maven-plugin-3.6.1.jar (72 kB at 487 kB/s)
+[INFO] 
+[INFO] ---------------------< com.photoalbum:photo-album >---------------------
+[INFO] Building Photo Album 1.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ photo-album ---
+[INFO] Effective-POM written to: C:\AppDev\PhotoAlbum-Java\PhotoAlbum-Java\effective-pom-3f55fb3b-873a-41d6-889e-ba94aa78e1ef.log
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  7.435 s
+[INFO] Finished at: 2026-06-26T16:24:20+02:00
+[INFO] ------------------------------------------------------------------------
+2026-06-26T14:24:20.668Z [INFO] [BaseBuildTool] Found 1 modules: .
+2026-06-26T14:24:20.685Z [INFO] [BaseBuildTool] Finish counting Java and class files
+2026-06-26T14:24:20.686Z [INFO] [MavenBuildTool] Cleaning C:\AppDev\PhotoAlbum-Java\PhotoAlbum-Java using Maven
+2026-06-26T14:24:20.686Z [INFO] [Environment] Running command (Java undefined): mvn clean -q -B -fn
+2026-06-26T14:24:40.390Z [INFO] ----------------------invoke appmod-report-event----------------------
+2026-06-26T14:24:40.390Z [INFO] [Tool.invoke]({name: appmod-report-event, modelId: mcp-client, input: {
+  "sessionId": "20260626141848",
+  "projectPath": "C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java",
+  "event": "upgradeStepCompleted",
+  "status": "succeeded",
+  "phase": "execute",
+  "details": {}
+}}).
+2026-06-26T14:24:40.391Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:24:40.391Z [INFO] [Tool.invoke]({result: {
+  "message": "Event 'upgradeStepCompleted' reported!\nSession ID: 20260626141848,\nSession Dir: C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java\\.github\\modernize\\java-upgrade\\20260626141848"
+}}).
+2026-06-26T14:24:40.392Z [INFO] ----------------------invoked appmod-report-event----------------------
+2026-06-26T14:24:40.394Z [INFO] ----------------------invoke appmod-report-event----------------------
+2026-06-26T14:24:40.395Z [INFO] [Tool.invoke]({name: appmod-report-event, modelId: mcp-client, input: {
+  "sessionId": "20260626141848",
+  "projectPath": "C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java",
+  "event": "upgradeStepCompleted",
+  "status": "succeeded",
+  "phase": "execute",
+  "details": {}
+}}).
+2026-06-26T14:24:40.395Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:24:40.396Z [INFO] [Tool.invoke]({result: {
+  "message": "Event 'upgradeStepCompleted' reported!\nSession ID: 20260626141848,\nSession Dir: C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java\\.github\\modernize\\java-upgrade\\20260626141848"
+}}).
+2026-06-26T14:24:40.396Z [INFO] ----------------------invoked appmod-report-event----------------------
+2026-06-26T14:24:44.485Z [INFO] ----------------------invoke appmod-report-event----------------------
+2026-06-26T14:24:44.485Z [INFO] [Tool.invoke]({name: appmod-report-event, modelId: mcp-client, input: {
+  "sessionId": "20260626141848",
+  "projectPath": "C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java",
+  "event": "upgradeStepStarted",
+  "status": "succeeded",
+  "phase": "execute",
+  "details": {}
+}}).
+2026-06-26T14:24:44.486Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:24:44.486Z [INFO] [Tool.invoke]({result: {
+  "message": "Event 'upgradeStepStarted' reported!\nSession ID: 20260626141848,\nSession Dir: C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java\\.github\\modernize\\java-upgrade\\20260626141848"
+}}).
+2026-06-26T14:24:44.487Z [INFO] ----------------------invoked appmod-report-event----------------------
+2026-06-26T14:25:10.757Z [INFO] ----------------------invoke appmod-report-event----------------------
+2026-06-26T14:25:10.758Z [INFO] [Tool.invoke]({name: appmod-report-event, modelId: mcp-client, input: {
+  "sessionId": "20260626141848",
+  "projectPath": "C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java",
+  "event": "upgradeStepCompleted",
+  "status": "succeeded",
+  "phase": "execute",
+  "details": {}
+}}).
+2026-06-26T14:25:10.759Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:25:10.760Z [INFO] [Tool.invoke]({result: {
+  "message": "Event 'upgradeStepCompleted' reported!\nSession ID: 20260626141848,\nSession Dir: C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java\\.github\\modernize\\java-upgrade\\20260626141848"
+}}).
+2026-06-26T14:25:10.760Z [INFO] ----------------------invoked appmod-report-event----------------------
+2026-06-26T14:25:16.011Z [INFO] ----------------------invoke appmod-report-event----------------------
+2026-06-26T14:25:16.012Z [INFO] [Tool.invoke]({name: appmod-report-event, modelId: mcp-client, input: {
+  "sessionId": "20260626141848",
+  "projectPath": "C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java",
+  "event": "upgradeStepStarted",
+  "status": "succeeded",
+  "phase": "execute",
+  "details": {}
+}}).
+2026-06-26T14:25:16.014Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:25:16.016Z [INFO] [Tool.invoke]({result: {
+  "message": "Event 'upgradeStepStarted' reported!\nSession ID: 20260626141848,\nSession Dir: C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java\\.github\\modernize\\java-upgrade\\20260626141848"
+}}).
+2026-06-26T14:25:16.018Z [INFO] ----------------------invoked appmod-report-event----------------------
+2026-06-26T14:26:45.954Z [INFO] ----------------------invoke appmod-report-event----------------------
+2026-06-26T14:26:45.955Z [INFO] [Tool.invoke]({name: appmod-report-event, modelId: mcp-client, input: {
+  "sessionId": "20260626141848",
+  "projectPath": "C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java",
+  "event": "testCompleted",
+  "status": "succeeded",
+  "phase": "execute"
+}}).
+2026-06-26T14:26:45.955Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:26:45.956Z [INFO] [Tool.invoke]({result: {
+  "message": "Event 'testCompleted' reported!\nSession ID: 20260626141848,\nSession Dir: C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java\\.github\\modernize\\java-upgrade\\20260626141848"
+}}).
+2026-06-26T14:26:45.956Z [INFO] ----------------------invoked appmod-report-event----------------------
+2026-06-26T14:27:21.754Z [INFO] ----------------------invoke appmod-report-event----------------------
+2026-06-26T14:27:21.754Z [INFO] [Tool.invoke]({name: appmod-report-event, modelId: mcp-client, input: {
+  "sessionId": "20260626141848",
+  "projectPath": "C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java",
+  "event": "upgradeValidationCompleted",
+  "status": "succeeded",
+  "phase": "execute",
+  "details": {}
+}}).
+2026-06-26T14:27:21.755Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:27:21.755Z [INFO] [Tool.invoke]({result: {
+  "message": "Event 'upgradeValidationCompleted' reported!\nSession ID: 20260626141848,\nSession Dir: C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java\\.github\\modernize\\java-upgrade\\20260626141848"
+}}).
+2026-06-26T14:27:21.755Z [INFO] ----------------------invoked appmod-report-event----------------------
+2026-06-26T14:27:25.929Z [INFO] ----------------------invoke appmod-report-event----------------------
+2026-06-26T14:27:25.930Z [INFO] [Tool.invoke]({name: appmod-report-event, modelId: mcp-client, input: {
+  "sessionId": "20260626141848",
+  "projectPath": "C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java",
+  "event": "planExecutionCompleted",
+  "status": "succeeded",
+  "phase": "execute"
+}}).
+2026-06-26T14:27:25.931Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:27:25.939Z [INFO] [Tool.invoke]({result: {
+  "message": "Event 'planExecutionCompleted' reported!\nSession ID: 20260626141848,\nSession Dir: C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java\\.github\\modernize\\java-upgrade\\20260626141848"
+}}).
+2026-06-26T14:27:25.939Z [INFO] ----------------------invoked appmod-report-event----------------------
+2026-06-26T14:28:21.386Z [INFO] ----------------------invoke appmod-validate-cves-for-java----------------------
+2026-06-26T14:28:21.386Z [INFO] [Tool.invoke]({name: appmod-validate-cves-for-java, modelId: mcp-client, input: {
+  "sessionId": "20260626141848",
+  "projectPath": "C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java",
+  "dependencies": [
+    "org.springframework.boot:spring-boot-starter-web:4.1.0",
+    "org.springframework.boot:spring-boot-starter-thymeleaf:4.1.0",
+    "org.springframework.boot:spring-boot-starter-data-jpa:4.1.0",
+    "com.oracle.database.jdbc:ojdbc11:23.26.2.0.0",
+    "org.springframework.boot:spring-boot-starter-validation:4.1.0",
+    "commons-io:commons-io:2.11.0",
+    "org.springframework.boot:spring-boot-starter-json:4.1.0",
+    "org.springframework.boot:spring-boot-starter-test:4.1.0",
+    "com.h2database:h2:2.4.240",
+    "org.springframework.boot:spring-boot-devtools:4.1.0"
+  ]
+}}).
+2026-06-26T14:28:21.387Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:28:21.388Z [INFO] Project C:\AppDev\PhotoAlbum-Java\PhotoAlbum-Java is a maven project, try to get java version from pom.xml
+2026-06-26T14:28:21.388Z [INFO] Getting CVEs for dependencies: org.springframework.boot:spring-boot-starter-web:4.1.0,org.springframework.boot:spring-boot-starter-thymeleaf:4.1.0,org.springframework.boot:spring-boot-starter-data-jpa:4.1.0,com.oracle.database.jdbc:ojdbc11:23.26.2.0.0,org.springframework.boot:spring-boot-starter-validation:4.1.0,commons-io:commons-io:2.11.0,org.springframework.boot:spring-boot-starter-json:4.1.0,org.springframework.boot:spring-boot-starter-test:4.1.0,com.h2database:h2:2.4.240,org.springframework.boot:spring-boot-devtools:4.1.0
+2026-06-26T14:28:21.389Z [INFO] getting CVEs for dependencies:
+ - org.springframework.boot:spring-boot-starter-web:4.1.0
+  - org.springframework.boot:spring-boot-starter-thymeleaf:4.1.0
+  - org.springframework.boot:spring-boot-starter-data-jpa:4.1.0
+  - com.oracle.database.jdbc:ojdbc11:23.26.2.0.0
+  - org.springframework.boot:spring-boot-starter-validation:4.1.0
+  - commons-io:commons-io:2.11.0
+  - org.springframework.boot:spring-boot-starter-json:4.1.0
+  - org.springframework.boot:spring-boot-starter-test:4.1.0
+  - com.h2database:h2:2.4.240
+  - org.springframework.boot:spring-boot-devtools:4.1.0...
+2026-06-26T14:28:21.390Z [INFO] getting gitHub access token...
+2026-06-26T14:28:21.390Z [ERROR] Failed to get GitHub access token to validate CVEs for the given dependencies.
+2026-06-26T14:28:21.391Z [INFO] Processing batch 1/1, size: 10
+2026-06-26T14:28:21.391Z [INFO] Proxy configuration: HTTPS_PROXY=(not set), HTTP_PROXY=(not set), NO_PROXY=(not set), NODE_EXTRA_CA_CERTS=(not set), vscode http.proxy=(not set), hasProxy=false
+2026-06-26T14:28:21.392Z [INFO] No proxy detected, using direct connection.
+2026-06-26T14:28:21.393Z [INFO] listing CVEs from GitHub for dependencies [
+  "org.springframework.boot:spring-boot-starter-web:4.1.0",
+  "org.springframework.boot:spring-boot-starter-thymeleaf:4.1.0",
+  "org.springframework.boot:spring-boot-starter-data-jpa:4.1.0",
+  "com.oracle.database.jdbc:ojdbc11:23.26.2.0.0",
+  "org.springframework.boot:spring-boot-starter-validation:4.1.0",
+  "commons-io:commons-io:2.11.0",
+  "org.springframework.boot:spring-boot-starter-json:4.1.0",
+  "org.springframework.boot:spring-boot-starter-test:4.1.0",
+  "com.h2database:h2:2.4.240",
+  "org.springframework.boot:spring-boot-devtools:4.1.0"
+]
+2026-06-26T14:28:21.394Z [INFO] GitHub Advisory API affects parameter: ["org.springframework.boot:spring-boot-starter-web@4.1.0","org.springframework.boot:spring-boot-starter-thymeleaf@4.1.0","org.springframework.boot:spring-boot-starter-data-jpa@4.1.0","com.oracle.database.jdbc:ojdbc11@23.26.2.0.0","org.springframework.boot:spring-boot-starter-validation@4.1.0","commons-io:commons-io@2.11.0","org.springframework.boot:spring-boot-starter-json@4.1.0","org.springframework.boot:spring-boot-starter-test@4.1.0","com.h2database:h2@2.4.240","org.springframework.boot:spring-boot-devtools@4.1.0"]
+2026-06-26T14:28:21.403Z [INFO] Project java version: 25
+2026-06-26T14:28:21.404Z [INFO] Maven project detected.
+2026-06-26T14:28:21.404Z [INFO] Build tool type: mvn
+2026-06-26T14:28:21.451Z [INFO] JDK: {
+  "name": "java",
+  "path": "C:\\Users\\anperei\\AppData\\Local\\jdks\\jdk-25.0.2\\bin",
+  "version": "25"
+}
+2026-06-26T14:28:21.461Z [INFO] Build tool: {
+  "name": "mvn",
+  "path": "C:\\Users\\anperei\\.maven\\maven-3.9.16\\bin",
+  "version": "",
+  "source": "install"
+}
+2026-06-26T14:28:21.461Z [INFO] Project config: {
+  "buildTool": {
+    "path": "C:\\Users\\anperei\\.maven\\maven-3.9.16\\bin",
+    "name": "mvn",
+    "version": "",
+    "source": "install"
+  },
+  "jdk": {
+    "path": "C:\\Users\\anperei\\AppData\\Local\\jdks\\jdk-25.0.2\\bin",
+    "name": "java",
+    "version": "25"
+  },
+  "name": "PhotoAlbum-Java",
+  "dir": "C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java"
+}
+2026-06-26T14:28:21.462Z [INFO] [Environment] Running command (Java undefined): mvn dependency:tree -B
+2026-06-26T14:28:21.821Z [INFO] Fetched 1 total advisories across all pages
+2026-06-26T14:28:21.823Z [INFO] Advisory IDs returned: CVE-2024-47554
+2026-06-26T14:28:21.826Z [INFO] grouping CVEs and finding max patched version by dep...
+2026-06-26T14:28:21.829Z [INFO] done getting 1 CVEs for 10 dependencies
+2026-06-26T14:28:21.832Z [INFO] calculating patched version by dep...
+2026-06-26T14:28:21.839Z [INFO] CVE CVE-2024-47554 for commons-io:commons-io:2.11.0: patched version 2.14.0
+2026-06-26T14:28:21.841Z [INFO] finished getting CVEs for dependencies.
+2026-06-26T14:28:21.842Z [INFO] Found 1 dependencies with known CVEs
+2026-06-26T14:28:21.846Z [INFO] CVE issues found:
+- Dependency `commons-io:commons-io:2.11.0` has **1** known CVEs need to be fixed:
+  - [CVE-2024-47554](https://github.com/advisories/GHSA-78wr-2p64-hpwj): Apache Commons IO: Possible denial of service attack on untrusted input to XmlStreamReader
+    - **Severity**: **HIGH**
+    - **Details**: Uncontrolled Resource Consumption vulnerability in Apache Commons IO.
+      
+      The `org.apache.commons.io.input.XmlStreamReader` class may excessively consume CPU resources when processing maliciously crafted input.
+      
+      
+      This issue affects Apache Commons IO: from 2.0 before 2.14.0.
+      
+      Users are recommended to upgrade to version 2.14.0 or later, which fixes the issue.
+2026-06-26T14:28:21.849Z [INFO] [Tool.invoke]({result: {
+  "message": "The following dependencies have known CVEs that need to be fixed:\n- Dependency `commons-io:commons-io:2.11.0` has **1** known CVEs need to be fixed:\n  - [CVE-2024-47554](https://github.com/advisories/GHSA-78wr-2p64-hpwj): Apache Commons IO: Possible denial of service attack on untrusted input to XmlStreamReader\n    - **Severity**: **HIGH**\n    - **Details**: Uncontrolled Resource Consumption vulnerability in Apache Commons IO.\n      \n      The `org.apache.commons.io.input.XmlStreamReader` class may excessively consume CPU resources when processing maliciously crafted input.\n      \n      \n      This issue affects Apache Commons IO: from 2.0 before 2.14.0.\n      \n      Users are recommended to upgrade to version 2.14.0 or later, which fixes the issue.",
+  "result": [
+    {
+      "cves": [
+        {
+          "id": "CVE-2024-47554",
+          "ghsa_id": "GHSA-78wr-2p64-hpwj",
+          "severity": "high",
+          "summary": "Apache Commons IO: Possible denial of service attack on untrusted input to XmlStreamReader",
+          "description": "Uncontrolled Resource Consumption vulnerability in Apache Commons IO.\n\nThe `org.apache.commons.io.input.XmlStreamReader` class may excessively consume CPU resources when processing maliciously crafted input.\n\n\nThis issue affects Apache Commons IO: from 2.0 before 2.14.0.\n\nUsers are recommended to upgrade to version 2.14.0 or later, which fixes the issue.",
+          "html_url": "https://github.com/advisories/GHSA-78wr-2p64-hpwj",
+          "affectedDeps": [
+            {
+              "name": "commons-io:commons-io",
+              "vulVersions": ">= 2.0, < 2.14.0",
+              "patchedVersion": "2.14.0"
+            }
+          ]
+        }
+      ],
+      "dep": "commons-io:commons-io:2.11.0",
+      "name": "commons-io:commons-io",
+      "version": "2.11.0",
+      "semver": "2.11.0",
+      "unfixableCves": [],
+      "patchedVersion": "2.14.0"
+    }
+  ],
+  "telemetry": {
+    "cve.high": 1,
+    "cves": "{\"CVE-2024-47554\":1}"
+  }
+}}).
+2026-06-26T14:28:21.850Z [INFO] ----------------------invoked appmod-validate-cves-for-java----------------------
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------< com.photoalbum:photo-album >---------------------
+[INFO] Building Photo Album 1.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.10.0:tree (default-cli) @ photo-album ---
+[INFO] com.photoalbum:photo-album:jar:1.0.0
+[INFO] +- org.springframework.boot:spring-boot-starter-web:jar:4.1.0:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-jackson:jar:4.1.0:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-tomcat:jar:4.1.0:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-starter-tomcat-runtime:jar:4.1.0:compile
+[INFO] |  |  |  +- org.springframework.boot:spring-boot-web-server:jar:4.1.0:compile
+[INFO] |  |  |  +- org.apache.tomcat.embed:tomcat-embed-core:jar:11.0.22:compile
+[INFO] |  |  |  \- org.apache.tomcat.embed:tomcat-embed-websocket:jar:11.0.22:compile
+[INFO] |  |  \- org.springframework.boot:spring-boot-tomcat:jar:4.1.0:compile
+[INFO] |  +- org.springframework.boot:spring-boot-http-converter:jar:4.1.0:compile
+[INFO] |  |  \- org.springframework:spring-web:jar:7.0.8:compile
+[INFO] |  |     +- org.springframework:spring-beans:jar:7.0.8:compile
+[INFO] |  |     \- io.micrometer:micrometer-observation:jar:1.17.0:compile
+[INFO] |  |        \- io.micrometer:micrometer-commons:jar:1.17.0:compile
+[INFO] |  \- org.springframework.boot:spring-boot-webmvc:jar:4.1.0:compile
+[INFO] |     +- org.springframework.boot:spring-boot-servlet:jar:4.1.0:compile
+[INFO] |     \- org.springframework:spring-webmvc:jar:7.0.8:compile
+[INFO] |        +- org.springframework:spring-aop:jar:7.0.8:compile
+[INFO] |        \- org.springframework:spring-expression:jar:7.0.8:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-thymeleaf:jar:4.1.0:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter:jar:4.1.0:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-starter-logging:jar:4.1.0:compile
+[INFO] |  |  |  +- ch.qos.logback:logback-classic:jar:1.5.34:compile
+[INFO] |  |  |  |  \- ch.qos.logback:logback-core:jar:1.5.34:compile
+[INFO] |  |  |  +- org.apache.logging.log4j:log4j-to-slf4j:jar:2.25.4:compile
+[INFO] |  |  |  |  \- org.apache.logging.log4j:log4j-api:jar:2.25.4:compile
+[INFO] |  |  |  \- org.slf4j:jul-to-slf4j:jar:2.0.18:compile
+[INFO] |  |  +- jakarta.annotation:jakarta.annotation-api:jar:3.0.0:compile
+[INFO] |  |  \- org.yaml:snakeyaml:jar:2.6:compile
+[INFO] |  \- org.springframework.boot:spring-boot-thymeleaf:jar:4.1.0:compile
+[INFO] |     \- org.thymeleaf:thymeleaf-spring6:jar:3.1.5.RELEASE:compile
+[INFO] |        \- org.thymeleaf:thymeleaf:jar:3.1.5.RELEASE:compile
+[INFO] |           +- org.attoparser:attoparser:jar:2.0.7.RELEASE:compile
+[INFO] |           \- org.unbescape:unbescape:jar:1.1.6.RELEASE:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-data-jpa:jar:4.1.0:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-jdbc:jar:4.1.0:compile
+[INFO] |  |  \- com.zaxxer:HikariCP:jar:7.0.2:compile
+[INFO] |  +- org.springframework.boot:spring-boot-data-jpa:jar:4.1.0:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-data-commons:jar:4.1.0:compile
+[INFO] |  |  |  +- org.springframework.boot:spring-boot-persistence:jar:4.1.0:compile
+[INFO] |  |  |  \- org.springframework.data:spring-data-commons:jar:4.1.0:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-hibernate:jar:4.1.0:compile
+[INFO] |  |  |  +- org.springframework.boot:spring-boot-jpa:jar:4.1.0:compile
+[INFO] |  |  |  |  \- jakarta.persistence:jakarta.persistence-api:jar:3.2.0:compile
+[INFO] |  |  |  +- org.hibernate.orm:hibernate-core:jar:7.4.1.Final:compile
+[INFO] |  |  |  |  +- jakarta.transaction:jakarta.transaction-api:jar:2.0.1:compile
+[INFO] |  |  |  |  +- org.hibernate.models:hibernate-models:jar:1.1.1:runtime
+[INFO] |  |  |  |  +- org.glassfish.jaxb:jaxb-runtime:jar:4.0.9:runtime
+[INFO] |  |  |  |  |  \- org.glassfish.jaxb:jaxb-core:jar:4.0.9:runtime
+[INFO] |  |  |  |  |     +- org.eclipse.angus:angus-activation:jar:2.0.3:runtime
+[INFO] |  |  |  |  |     +- org.glassfish.jaxb:txw2:jar:4.0.9:runtime
+[INFO] |  |  |  |  |     \- com.sun.istack:istack-commons-runtime:jar:4.1.2:runtime
+[INFO] |  |  |  |  \- jakarta.inject:jakarta.inject-api:jar:2.0.1:runtime
+[INFO] |  |  |  \- org.springframework:spring-orm:jar:7.0.8:compile
+[INFO] |  |  +- org.springframework.data:spring-data-jpa:jar:4.1.0:compile
+[INFO] |  |  |  +- org.springframework:spring-tx:jar:7.0.8:compile
+[INFO] |  |  |  \- org.antlr:antlr4-runtime:jar:4.13.2:compile
+[INFO] |  |  \- org.springframework:spring-aspects:jar:7.0.8:compile
+[INFO] |  |     \- org.aspectj:aspectjweaver:jar:1.9.25.1:compile
+[INFO] |  \- org.springframework.boot:spring-boot-jdbc:jar:4.1.0:compile
+[INFO] |     +- org.springframework.boot:spring-boot-sql:jar:4.1.0:compile
+[INFO] |     +- org.springframework.boot:spring-boot-transaction:jar:4.1.0:compile
+[INFO] |     \- org.springframework:spring-jdbc:jar:7.0.8:compile
+[INFO] +- com.oracle.database.jdbc:ojdbc11:jar:23.26.2.0.0:runtime
+[INFO] +- org.springframework.boot:spring-boot-starter-validation:jar:4.1.0:compile
+[INFO] |  \- org.springframework.boot:spring-boot-validation:jar:4.1.0:compile
+[INFO] |     +- org.apache.tomcat.embed:tomcat-embed-el:jar:11.0.22:compile
+[INFO] |     \- org.hibernate.validator:hibernate-validator:jar:9.1.0.Final:compile
+[INFO] |        +- jakarta.validation:jakarta.validation-api:jar:3.1.1:compile
+[INFO] |        +- org.jboss.logging:jboss-logging:jar:3.6.3.Final:compile
+[INFO] |        \- com.fasterxml:classmate:jar:1.7.3:compile
+[INFO] +- commons-io:commons-io:jar:2.11.0:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-json:jar:4.1.0:compile
+[INFO] |  \- org.springframework.boot:spring-boot-jackson:jar:4.1.0:compile
+[INFO] |     \- tools.jackson.core:jackson-databind:jar:3.1.4:compile
+[INFO] |        +- com.fasterxml.jackson.core:jackson-annotations:jar:2.21:compile
+[INFO] |        \- tools.jackson.core:jackson-core:jar:3.1.4:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-test:jar:4.1.0:test
+[INFO] |  +- org.springframework.boot:spring-boot-test:jar:4.1.0:test
+[INFO] |  +- org.springframework.boot:spring-boot-test-autoconfigure:jar:4.1.0:test
+[INFO] |  +- com.jayway.jsonpath:json-path:jar:2.10.0:test
+[INFO] |  |  \- org.slf4j:slf4j-api:jar:2.0.18:compile
+[INFO] |  +- jakarta.xml.bind:jakarta.xml.bind-api:jar:4.0.5:runtime
+[INFO] |  |  \- jakarta.activation:jakarta.activation-api:jar:2.1.4:runtime
+[INFO] |  +- net.minidev:json-smart:jar:2.6.0:test
+[INFO] |  |  \- net.minidev:accessors-smart:jar:2.6.0:test
+[INFO] |  |     \- org.ow2.asm:asm:jar:9.7.1:test
+[INFO] |  +- org.assertj:assertj-core:jar:3.27.7:test
+[INFO] |  |  \- net.bytebuddy:byte-buddy:jar:1.18.10:runtime
+[INFO] |  +- org.awaitility:awaitility:jar:4.3.0:test
+[INFO] |  +- org.hamcrest:hamcrest:jar:3.0:test
+[INFO] |  +- org.junit.jupiter:junit-jupiter:jar:6.0.3:test
+[INFO] |  |  +- org.junit.jupiter:junit-jupiter-api:jar:6.0.3:test
+[INFO] |  |  |  +- org.opentest4j:opentest4j:jar:1.3.0:test
+[INFO] |  |  |  +- org.junit.platform:junit-platform-commons:jar:6.0.3:test
+[INFO] |  |  |  \- org.apiguardian:apiguardian-api:jar:1.1.2:test
+[INFO] |  |  +- org.junit.jupiter:junit-jupiter-params:jar:6.0.3:test
+[INFO] |  |  \- org.junit.jupiter:junit-jupiter-engine:jar:6.0.3:test
+[INFO] |  |     \- org.junit.platform:junit-platform-engine:jar:6.0.3:test
+[INFO] |  +- org.mockito:mockito-core:jar:5.23.0:test
+[INFO] |  |  +- net.bytebuddy:byte-buddy-agent:jar:1.18.10:test
+[INFO] |  |  \- org.objenesis:objenesis:jar:3.3:test
+[INFO] |  +- org.mockito:mockito-junit-jupiter:jar:5.23.0:test
+[INFO] |  +- org.skyscreamer:jsonassert:jar:1.5.3:test
+[INFO] |  |  \- com.vaadin.external.google:android-json:jar:0.0.20131108.vaadin1:test
+[INFO] |  +- org.springframework:spring-core:jar:7.0.8:compile
+[INFO] |  |  +- commons-logging:commons-logging:jar:1.3.6:compile
+[INFO] |  |  \- org.jspecify:jspecify:jar:1.0.0:compile
+[INFO] |  +- org.springframework:spring-test:jar:7.0.8:test
+[INFO] |  \- org.xmlunit:xmlunit-core:jar:2.11.0:test
+[INFO] +- com.h2database:h2:jar:2.4.240:test
+[INFO] \- org.springframework.boot:spring-boot-devtools:jar:4.1.0:compile (optional)
+[INFO]    +- org.springframework.boot:spring-boot:jar:4.1.0:compile
+[INFO]    |  \- org.springframework:spring-context:jar:7.0.8:compile
+[INFO]    \- org.springframework.boot:spring-boot-autoconfigure:jar:4.1.0:compile
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.225 s
+[INFO] Finished at: 2026-06-26T16:28:25+02:00
+[INFO] ------------------------------------------------------------------------
+2026-06-26T14:28:25.624Z [INFO] [MavenBuildTool] Successfully got dependency tree of C:\AppDev\PhotoAlbum-Java\PhotoAlbum-Java
+2026-06-26T14:28:25.627Z [INFO] [MavenBuildTool] Getting Java version of C:\AppDev\PhotoAlbum-Java\PhotoAlbum-Java from pom.xml
+2026-06-26T14:28:25.629Z [INFO] [MavenBuildTool] Searching for pom.xml files in C:\AppDev\PhotoAlbum-Java\PhotoAlbum-Java
+2026-06-26T14:28:25.629Z [INFO] [MavenBuildTool] Getting all module coordinates of C:\AppDev\PhotoAlbum-Java\PhotoAlbum-Java
+2026-06-26T14:28:25.630Z [INFO] [MavenBuildTool] Getting effective POMs of C:\AppDev\PhotoAlbum-Java\PhotoAlbum-Java
+2026-06-26T14:28:25.630Z [INFO] [Environment] Running command (Java undefined): mvn help:effective-pom -Doutput=effective-pom-7008a606-4782-4152-ae76-3580cd8f78fe.log
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------< com.photoalbum:photo-album >---------------------
+[INFO] Building Photo Album 1.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ photo-album ---
+[INFO] Effective-POM written to: C:\AppDev\PhotoAlbum-Java\PhotoAlbum-Java\effective-pom-7008a606-4782-4152-ae76-3580cd8f78fe.log
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.938 s
+[INFO] Finished at: 2026-06-26T16:28:28+02:00
+[INFO] ------------------------------------------------------------------------
+2026-06-26T14:28:28.371Z [INFO] [MavenBuildTool] Found pom.xml files: C:\AppDev\PhotoAlbum-Java\PhotoAlbum-Java\pom.xml
+2026-06-26T14:28:28.372Z [INFO] [MavenBuildTool] Java version found in C:\AppDev\PhotoAlbum-Java\PhotoAlbum-Java\pom.xml: 25
+2026-06-26T14:30:01.898Z [INFO] ----------------------invoke appmod-report-event----------------------
+2026-06-26T14:30:01.898Z [INFO] [Tool.invoke]({name: appmod-report-event, modelId: mcp-client, input: {
+  "sessionId": "20260626141848",
+  "projectPath": "C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java",
+  "event": "summaryGenerated",
+  "status": "succeeded",
+  "phase": "summarize",
+  "message": "Photo Album upgraded from Spring Boot 2.7.18 / Java 8 to Spring Boot 4.1.0 / Java 25 with full jakarta.* namespace migration. All 1 tests pass. CVE-2024-47554 remediated by upgrading commons-io to 2.18.0."
+}}).
+2026-06-26T14:30:01.899Z [INFO] [Tool.invoke] do invoke.
+2026-06-26T14:30:01.900Z [INFO] [Tool.invoke]({result: {
+  "message": "Event 'summaryGenerated' reported!\nSession ID: 20260626141848,\nSession Dir: C:\\AppDev\\PhotoAlbum-Java\\PhotoAlbum-Java\\.github\\modernize\\java-upgrade\\20260626141848"
+}}).
+2026-06-26T14:30:01.900Z [INFO] ----------------------invoked appmod-report-event----------------------

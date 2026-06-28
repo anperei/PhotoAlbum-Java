@@ -1,0 +1,32 @@
+{
+  "$schema": "https://raw.githubusercontent.com/github/appmod-modernize/main/tasks-schema.json",
+  "description": "Tasks template for modernization plan. Generate this file alongside plan.md to track individual migration tasks.",
+  "tasks": [
+    {
+      "type": "upgrade",
+      "id": "001-upgrade-spring-boot-4x",
+      "description": "Upgrade the Photo Album application from Spring Boot 2.7.18 / Java 8 to Spring Boot 4.x / Java 25. This includes upgrading Spring Framework from 5.x to 7.x and migrating Java EE namespace from javax.* to jakarta.*.",
+      "reason": "Addresses mandatory blockers from the assessment report: \u0027Spring Boot Version Has Reached the End of OSS Support\u0027 (pom.xml), \u0027Spring Framework Version Has Reached the End of OSS Support\u0027 (pom.xml), \u0027Java Version Has Reached the End of Support\u0027 (pom.xml), \u0027Java Version is not the latest LTS\u0027 (pom.xml), and \u0027Detects usage of Jakarta Persistence (JPA) APIs\u0027 (pom.xml). All of these are resolved by upgrading to Spring Boot 4.x which includes Spring Framework 7.x, Jakarta EE (jakarta.*) namespace, and Java 25.",
+      "requirements": "Upgrade the project to Spring Boot 4.x and Java 25. This must include: (1) Update the Spring Boot parent POM version from 2.7.18 to the latest Spring Boot 4.x release. (2) Update the Java source/target compiler version from 8 to 25. (3) Migrate all Java EE imports from javax.* to jakarta.* (e.g., javax.persistence.* \u2192 jakarta.persistence.*, javax.validation.* \u2192 jakarta.validation.*, javax.servlet.* \u2192 jakarta.servlet.*). (4) Update Spring Framework transitive dependencies to 7.x as included in Spring Boot 4.x. (5) Resolve any Spring Boot 4.x breaking changes in configuration, deprecated APIs, or auto-configuration. (6) Ensure the Oracle JDBC driver (ojdbc8) is compatible with Java 25 or upgrade to a compatible version. (7) Ensure the project builds and all existing tests pass after the upgrade.",
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      },
+      "status": "success",
+      "summary": "Successfully upgraded from Spring Boot 2.7.18 / Java 8 to Spring Boot 4.1.0 / Java 25. Migrated javax.* to jakarta.*, upgraded Oracle JDBC from ojdbc8 to ojdbc11 v23.26.2.0.0, upgraded Hibernate to 7.4.1.Final, updated Dockerfile base images to eclipse-temurin:25, and remediated CVE-2024-47554 by upgrading commons-io to 2.18.0. Build and tests pass.",
+      "successCriteriaStatus": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
+    }
+  ],
+  "metadata": {
+    "planName": "upgrade-plan",
+    "projectName": "photo-album",
+    "language": "java",
+    "createdAt": "2026-06-26T16:06:40.593\u002B02:00",
+    "version": "1.0"
+  }
+}
