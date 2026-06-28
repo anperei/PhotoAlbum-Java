@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Tasks template for modernization plan. Generate this file alongside plan.md to track individual migration tasks.",
+  "tasks": [
+    {
+      "type": "security",
+      "id": "001-security-cve-remediation",
+      "status": "success",
+      "summary": "Scanned 181 Maven dependencies. Found one real vulnerability \u2014 CVE-2026-54515 (medium) in jackson-databind:2.21.4. Fixed by upgrading jackson-2-bom to 2.22.0. Two Netty CVE-2026-45536 entries were false positives. Build succeeded, 1 test run, 0 failures.",
+      "successCriteriaStatus": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      },
+      "description": "Scan all project dependencies for known CVEs and remediate identified vulnerabilities to ensure the application is secure before deployment.",
+      "reason": "Proactive security hardening is required before deploying to Azure. Dependency vulnerabilities (CVEs) must be identified and resolved to meet cloud security best practices.",
+      "requirements": "Scan all Maven dependencies in pom.xml for known CVEs. Upgrade vulnerable dependencies to the minimum patched version. If a CVE fix requires a major version upgrade, document the affected dependency, the current version, the upgraded major version, and the breaking change risk. Verify that the project builds and all unit tests pass after remediation.",
+      "skills": [
+        {
+          "name": "validate-cves-and-fix",
+          "location": "builtin"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
+    },
+    {
+      "type": "deployment",
+      "id": "002-deployment-azure-container-apps",
+      "status": "success",
+      "summary": "Provisioned Azure Container Apps environment, Azure Database for PostgreSQL Flexible Server (v17), Container Registry, and Managed Identity in eastus2. Docker image built and deployed. Application live at https://azca5ly5sxmc37fqi.nicecoast-c5a6b225.eastus2.azurecontainerapps.io with Spring Boot 4.1.0 running, PostgreSQL connected via Managed Identity, server.port externalized as SERVER_PORT env var.",
+      "successCriteriaStatus": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      },
+      "description": "Provision new Azure infrastructure (Azure Container Apps environment \u002B Azure Database for PostgreSQL Flexible Server) and deploy the Photo Album application, prompting for Azure authentication to allow selection of the target Azure subscription and environment.",
+      "reason": "The user requested deployment to Azure. The application is already containerized (Dockerfile present) and configured for Azure PostgreSQL with Managed Identity. Remaining assessment issues \u2014 hardcoded server port (Server port configuration found, Restricted configurations found) \u2014 are addressed by externalizing port configuration as an environment variable in the container deployment manifest.",
+      "requirements": "Provision a new Azure Container Apps environment and Azure Database for PostgreSQL Flexible Server using Bicep. Authenticate with Azure and prompt the user to select the target subscription and environment before deployment. Configure the container app to use the existing Dockerfile. Use Managed Identity for PostgreSQL authentication (passwordless). Externalize server.port as an environment variable in the container app configuration to address the hardcoded port configuration issues identified in the assessment (Server port configuration found \u2014 application.properties line 2, application-docker.properties line 24; Restricted configurations found \u2014 same files and lines). Addresses assessment issues: Server port configuration found, Restricted configurations found.",
+      "environmentConfiguration": "Azure subscription and resource group will be selected interactively via Azure CLI authentication prompt during deployment.",
+      "dependencies": [
+        "001-security-cve-remediation"
+      ],
+      "skills": [
+        {
+          "name": "azcli-containerapp-deploy",
+          "location": "builtin"
+        }
+      ],
+      "targetAzureService": "Azure Container Apps",
+      "resourceStatus": "Create new resources",
+      "deploymentTool": "bicep"
+    }
+  ],
+  "metadata": {
+    "planName": "modernization-plan",
+    "projectName": "photo-album",
+    "language": "java",
+    "createdAt": "2026-06-27T20:48:45Z",
+    "version": "1.0"
+  }
+}
