@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import jakarta.servlet.http.HttpServletRequest;
 
+import jakarta.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -64,6 +65,7 @@ public class HomeController {
         Map<String, Object> response = new HashMap<String, Object>();
         List<Map<String, Object>> uploadedPhotos = new ArrayList<Map<String, Object>>();
         List<Map<String, Object>> failedUploads = new ArrayList<Map<String, Object>>();
+<<<<<<< HEAD
         long batchStartMs = System.currentTimeMillis();
         String sessionId = request.getSession(false) != null ? request.getSession(false).getId() : "unknown";
         String visitorId = "unknown";
@@ -73,6 +75,9 @@ public class HomeController {
                 visitorId = visitor.toString();
             }
         }
+=======
+        long batchStart = System.currentTimeMillis();
+>>>>>>> modernize
 
         if (files == null || files.isEmpty()) {
             response.put("success", false);
@@ -80,9 +85,17 @@ public class HomeController {
             return ResponseEntity.badRequest().body(response);
         }
 
+        String sessionId = request.getSession(true).getId();
+        String visitorId = resolveVisitorId(request);
+
         for (MultipartFile file : files) {
+<<<<<<< HEAD
             long fileStartMs = System.currentTimeMillis();
+=======
+            long fileStart = System.currentTimeMillis();
+>>>>>>> modernize
             UploadResult result = photoService.uploadPhoto(file);
+            long fileDuration = System.currentTimeMillis() - fileStart;
 
             if (result.isSuccess()) {
                 Optional<Photo> photoOpt = photoService.getPhotoById(result.getPhotoId());
@@ -105,7 +118,11 @@ public class HomeController {
                         file.getOriginalFilename(),
                         file.getContentType(),
                         file.getSize(),
+<<<<<<< HEAD
                         System.currentTimeMillis() - fileStartMs,
+=======
+                        fileDuration,
+>>>>>>> modernize
                         true,
                         null);
             } else {
@@ -120,11 +137,24 @@ public class HomeController {
                         result.getFileName(),
                         file.getContentType(),
                         file.getSize(),
+<<<<<<< HEAD
                         System.currentTimeMillis() - fileStartMs,
+=======
+                        fileDuration,
+>>>>>>> modernize
                         false,
                         result.getErrorMessage());
             }
         }
+
+        long batchDuration = System.currentTimeMillis() - batchStart;
+        telemetryService.trackUploadBatch(
+                sessionId,
+                visitorId,
+                files.size(),
+                uploadedPhotos.size(),
+                failedUploads.size(),
+                batchDuration);
 
         response.put("success", !uploadedPhotos.isEmpty());
         response.put("uploadedPhotos", uploadedPhotos);
@@ -139,5 +169,16 @@ public class HomeController {
                 System.currentTimeMillis() - batchStartMs);
 
         return ResponseEntity.ok(response);
+    }
+
+    private String resolveVisitorId(HttpServletRequest request) {
+        Object visitor = request.getAttribute("telemetry.visitorId");
+        if (visitor != null) {
+            String value = visitor.toString();
+            if (!value.trim().isEmpty()) {
+                return value;
+            }
+        }
+        return "unknown";
     }
 }

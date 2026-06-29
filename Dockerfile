@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 # Use Maven with OpenJDK 25 for building
 FROM maven:3.9-eclipse-temurin-25-alpine AS build
+=======
+# Use Maven with OpenJDK 21 for building
+FROM maven:3.9.6-eclipse-temurin-21 AS build
+>>>>>>> modernize
 
 WORKDIR /app
 
@@ -13,8 +18,13 @@ COPY src ./src
 # Build the application
 RUN mvn clean package -DskipTests
 
+<<<<<<< HEAD
 # Use OpenJDK 25 runtime for the final image
 FROM eclipse-temurin:25-jre-alpine
+=======
+# Use OpenJDK 21 runtime for the final image
+FROM eclipse-temurin:21-jre
+>>>>>>> modernize
 
 WORKDIR /app
 

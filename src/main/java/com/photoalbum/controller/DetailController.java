@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import jakarta.servlet.http.HttpServletRequest;
 
+import jakarta.servlet.http.HttpServletRequest;
 import java.util.Optional;
 
 /**
@@ -67,6 +68,7 @@ public class DetailController {
      */
     @PostMapping("/{id}/delete")
     public String deletePhoto(@PathVariable String id, RedirectAttributes redirectAttributes, HttpServletRequest request) {
+<<<<<<< HEAD
         long deleteStartMs = System.currentTimeMillis();
         String sessionId = request.getSession(false) != null ? request.getSession(false).getId() : "unknown";
         String visitorId = "unknown";
@@ -83,7 +85,19 @@ public class DetailController {
             fileName = photoBeforeDelete.get().getOriginalFileName();
         }
 
+=======
+        long start = System.currentTimeMillis();
+        String sessionId = request.getSession(true).getId();
+        String visitorId = resolveVisitorId(request);
+        String fileName = "unknown";
+
+>>>>>>> modernize
         try {
+            Optional<Photo> photoOpt = photoService.getPhotoById(id);
+            if (photoOpt.isPresent() && photoOpt.get().getOriginalFileName() != null && !photoOpt.get().getOriginalFileName().trim().isEmpty()) {
+                fileName = photoOpt.get().getOriginalFileName();
+            }
+
             boolean deleted = photoService.deletePhoto(id);
             if (deleted) {
                 logger.info("Photo {} deleted successfully", id);
@@ -93,7 +107,11 @@ public class DetailController {
                         visitorId,
                         id,
                         fileName,
+<<<<<<< HEAD
                         System.currentTimeMillis() - deleteStartMs,
+=======
+                        System.currentTimeMillis() - start,
+>>>>>>> modernize
                         true,
                         null);
             } else {
@@ -103,7 +121,11 @@ public class DetailController {
                         visitorId,
                         id,
                         fileName,
+<<<<<<< HEAD
                         System.currentTimeMillis() - deleteStartMs,
+=======
+                        System.currentTimeMillis() - start,
+>>>>>>> modernize
                         false,
                         "Photo not found");
             }
@@ -115,10 +137,25 @@ public class DetailController {
                     visitorId,
                     id,
                     fileName,
+<<<<<<< HEAD
                     System.currentTimeMillis() - deleteStartMs,
+=======
+                    System.currentTimeMillis() - start,
+>>>>>>> modernize
                     false,
                     ex.getMessage());
         }
         return "redirect:/";
+    }
+
+    private String resolveVisitorId(HttpServletRequest request) {
+        Object visitor = request.getAttribute("telemetry.visitorId");
+        if (visitor != null) {
+            String value = visitor.toString();
+            if (!value.trim().isEmpty()) {
+                return value;
+            }
+        }
+        return "unknown";
     }
 }
