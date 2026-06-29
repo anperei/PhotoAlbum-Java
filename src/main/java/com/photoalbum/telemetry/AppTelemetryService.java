@@ -1,30 +1,40 @@
 package com.photoalbum.telemetry;
 
-import io.micrometer.core.instrument.MeterRegistry;
-import io.opentelemetry.api.GlobalOpenTelemetry;
-import io.opentelemetry.api.trace.Span;
-import io.opentelemetry.api.trace.SpanKind;
-import io.opentelemetry.api.trace.StatusCode;
-import io.opentelemetry.api.trace.Tracer;
+import com.microsoft.applicationinsights.TelemetryClient;
+import com.microsoft.applicationinsights.TelemetryConfiguration;
+import com.microsoft.applicationinsights.telemetry.Duration;
+import com.microsoft.applicationinsights.telemetry.RequestTelemetry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 @Service
 public class AppTelemetryService {
 
     private static final Logger logger = LoggerFactory.getLogger(AppTelemetryService.class);
 
-    private final MeterRegistry meterRegistry;
-    private final Tracer tracer;
+    private final TelemetryClient telemetryClient;
+    private final boolean telemetryEnabled;
 
-    public AppTelemetryService(MeterRegistry meterRegistry) {
-        this.meterRegistry = meterRegistry;
-        this.tracer = GlobalOpenTelemetry.getTracer("com.photoalbum.telemetry", "1.0.0");
+    public AppTelemetryService() {
+        String connectionString = System.getenv("APPLICATIONINSIGHTS_CONNECTION_STRING");
+        String instrumentationKey = extractInstrumentationKey(connectionString);
+
+        if (isBlank(instrumentationKey)) {
+            this.telemetryEnabled = false;
+            this.telemetryClient = null;
+            logger.warn("Application Insights instrumentation key was not resolved. Telemetry events will be logged locally only.");
+            return;
+        }
+
+        TelemetryConfiguration configuration = TelemetryConfiguration.getActive();
+        configuration.setInstrumentationKey(instrumentationKey);
+        this.telemetryClient = new TelemetryClient(configuration);
+        this.telemetryEnabled = true;
+        logger.info("Application Insights telemetry initialized.");
     }
 
     public void trackUploadBatch(
@@ -41,12 +51,13 @@ public class AppTelemetryService {
         attributes.put("durationMs", Long.toString(durationMs));
         attributes.put("result", failedCount > 0 ? "partial" : "success");
 
-        recordSpan("photo.upload.batch", attributes, null);
+        Map<String, Double> metrics = new HashMap<String, Double>();
+        metrics.put("requestedCount", (double) requestedCount);
+        metrics.put("uploadedCount", (double) uploadedCount);
+        metrics.put("failedCount", (double) failedCount);
+        metrics.put("durationMs", (double) durationMs);
 
-        meterRegistry.counter("photo.upload.batch.count", "result", attributes.get("result")).increment();
-        meterRegistry.summary("photo.upload.batch.size").record(requestedCount);
-        meterRegistry.timer("photo.upload.batch.duration", "result", attributes.get("result"))
-                .record(durationMs, TimeUnit.MILLISECONDS);
+        trackEvent("photo.upload.batch", attributes, metrics);
 
         logger.info(
                 "telemetry_event name=photo.upload.batch sessionId={} visitorId={} requestedCount={} uploadedCount={} failedCount={} durationMs={} result={}",
@@ -78,13 +89,14 @@ public class AppTelemetryService {
             attributes.put("error", errorMessage);
         }
 
-        recordSpan("photo.upload.file", attributes, success ? null : new RuntimeException(fallback(errorMessage)));
+        Map<String, Double> metrics = new HashMap<String, Double>();
+        metrics.put("fileSizeBytes", (double) fileSizeBytes);
+        metrics.put("durationMs", (double) durationMs);
 
-        meterRegistry.counter("photo.upload.file.count", "result", attributes.get("result"), "mimeType", attributes.get("mimeType"))
-                .increment();
-        meterRegistry.summary("photo.upload.file.size", "mimeType", attributes.get("mimeType")).record(fileSizeBytes);
-        meterRegistry.timer("photo.upload.file.duration", "result", attributes.get("result"))
-                .record(durationMs, TimeUnit.MILLISECONDS);
+        trackEvent("photo.upload.file", attributes, metrics);
+        if (!success && errorMessage != null) {
+            trackException(new RuntimeException(errorMessage), attributes);
+        }
 
         logger.info(
                 "telemetry_event name=photo.upload.file sessionId={} visitorId={} fileName={} mimeType={} fileSizeBytes={} durationMs={} result={} error={}",
@@ -115,11 +127,13 @@ public class AppTelemetryService {
             attributes.put("error", errorMessage);
         }
 
-        recordSpan("photo.delete", attributes, success ? null : new RuntimeException(fallback(errorMessage)));
+        Map<String, Double> metrics = new HashMap<String, Double>();
+        metrics.put("durationMs", (double) durationMs);
 
-        meterRegistry.counter("photo.delete.count", "result", attributes.get("result")).increment();
-        meterRegistry.timer("photo.delete.duration", "result", attributes.get("result"))
-                .record(durationMs, TimeUnit.MILLISECONDS);
+        trackEvent("photo.delete", attributes, metrics);
+        if (!success && errorMessage != null) {
+            trackException(new RuntimeException(errorMessage), attributes);
+        }
 
         logger.info(
                 "telemetry_event name=photo.delete sessionId={} visitorId={} photoId={} fileName={} durationMs={} result={} error={}",
@@ -136,8 +150,7 @@ public class AppTelemetryService {
         Map<String, String> attributes = baseAttributes(sessionId, visitorId);
         attributes.put("result", "started");
 
-        recordSpan("photo.session.started", attributes, null);
-        meterRegistry.counter("photo.session.started.count").increment();
+        trackEvent("photo.session.started", attributes, null);
 
         logger.info("telemetry_event name=photo.session.started sessionId={} visitorId={}", sessionId, visitorId);
     }
@@ -157,11 +170,12 @@ public class AppTelemetryService {
         attributes.put("requestDurationMs", Long.toString(requestDurationMs));
         attributes.put("sessionDurationMs", Long.toString(sessionDurationMs));
 
-        recordSpan("photo.session.activity", attributes, null);
+        Map<String, Double> metrics = new HashMap<String, Double>();
+        metrics.put("statusCode", (double) statusCode);
+        metrics.put("requestDurationMs", (double) requestDurationMs);
+        metrics.put("sessionDurationMs", (double) sessionDurationMs);
 
-        meterRegistry.timer("photo.request.duration", "method", attributes.get("method"), "path", attributes.get("path"))
-                .record(requestDurationMs, TimeUnit.MILLISECONDS);
-        meterRegistry.summary("photo.session.duration").record(sessionDurationMs);
+        trackEvent("photo.session.activity", attributes, metrics);
 
         logger.info(
                 "telemetry_event name=photo.session.activity sessionId={} visitorId={} method={} path={} statusCode={} requestDurationMs={} sessionDurationMs={}",
@@ -174,12 +188,34 @@ public class AppTelemetryService {
                 sessionDurationMs);
     }
 
+    public void trackRequest(String method, String path, int statusCode, long requestDurationMs) {
+        if (!telemetryEnabled) {
+            return;
+        }
+
+        String normalizedMethod = fallback(method);
+        String normalizedPath = fallback(path);
+        String requestName = normalizedMethod + " " + normalizedPath;
+        boolean success = statusCode < 400;
+
+        RequestTelemetry requestTelemetry = new RequestTelemetry();
+        requestTelemetry.setName(requestName);
+        requestTelemetry.setDuration(new Duration(requestDurationMs));
+        requestTelemetry.setResponseCode(Integer.toString(statusCode));
+        requestTelemetry.setSuccess(success);
+
+        telemetryClient.trackRequest(requestTelemetry);
+        telemetryClient.flush();
+    }
+
     public void trackSessionEnded(String sessionId, String visitorId, long totalSessionDurationMs) {
         Map<String, String> attributes = baseAttributes(sessionId, visitorId);
         attributes.put("totalSessionDurationMs", Long.toString(totalSessionDurationMs));
 
-        recordSpan("photo.session.ended", attributes, null);
-        meterRegistry.summary("photo.session.total-duration").record(totalSessionDurationMs);
+        Map<String, Double> metrics = new HashMap<String, Double>();
+        metrics.put("totalSessionDurationMs", (double) totalSessionDurationMs);
+
+        trackEvent("photo.session.ended", attributes, metrics);
 
         logger.info(
                 "telemetry_event name=photo.session.ended sessionId={} visitorId={} totalSessionDurationMs={}",
@@ -195,24 +231,48 @@ public class AppTelemetryService {
         return attributes;
     }
 
-    private void recordSpan(String spanName, Map<String, String> attributes, Throwable throwable) {
-        Span span = tracer.spanBuilder(spanName).setSpanKind(SpanKind.INTERNAL).startSpan();
-        try {
-            for (Map.Entry<String, String> entry : attributes.entrySet()) {
-                if (entry.getValue() != null) {
-                    span.setAttribute(entry.getKey(), entry.getValue());
-                }
-            }
-            if (throwable != null) {
-                span.recordException(throwable);
-                span.setStatus(StatusCode.ERROR, throwable.getMessage());
-            }
-        } finally {
-            span.end();
+    private void trackEvent(String name, Map<String, String> properties, Map<String, Double> metrics) {
+        if (!telemetryEnabled) {
+            return;
         }
+
+        telemetryClient.trackEvent(name, properties, metrics);
+        telemetryClient.flush();
     }
 
-    private String fallback(String value) {
-        return value == null || value.isBlank() ? "unknown" : value;
+    private void trackException(Exception exception, Map<String, String> properties) {
+        if (!telemetryEnabled) {
+            return;
+        }
+
+        telemetryClient.trackException(exception, properties, null);
+        telemetryClient.flush();
+    }
+
+    private static String extractInstrumentationKey(String connectionString) {
+        if (isBlank(connectionString)) {
+            return null;
+        }
+
+        String[] pairs = connectionString.split(";");
+        for (int i = 0; i < pairs.length; i++) {
+            String pair = pairs[i];
+            if (pair == null) {
+                continue;
+            }
+            String trimmed = pair.trim();
+            if (trimmed.startsWith("InstrumentationKey=")) {
+                return trimmed.substring("InstrumentationKey=".length()).trim();
+            }
+        }
+        return null;
+    }
+
+    private static String fallback(String value) {
+        return isBlank(value) ? "unknown" : value;
+    }
+
+    private static boolean isBlank(String value) {
+        return value == null || value.trim().isEmpty();
     }
 }

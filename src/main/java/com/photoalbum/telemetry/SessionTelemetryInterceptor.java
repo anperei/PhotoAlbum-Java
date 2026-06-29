@@ -77,6 +77,12 @@ public class SessionTelemetryInterceptor implements HandlerInterceptor {
                 response.getStatus(),
                 requestDurationMs,
                 sessionDurationMs);
+
+        telemetryService.trackRequest(
+            request.getMethod(),
+            request.getRequestURI(),
+            response.getStatus(),
+            requestDurationMs);
     }
 
     private String resolveOrCreateVisitorId(HttpServletRequest request, HttpServletResponse response) {
